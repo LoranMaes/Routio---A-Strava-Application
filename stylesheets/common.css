@@ -1,0 +1,48 @@
+html {
+    font-size: 62.5%;
+ }
+ 
+ body {
+    margin: 0;
+ }
+ 
+ *, *::before, *::after {
+    box-sizing: border-box;
+ }
+ 
+ .container {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 1280px;
+ }
+ 
+ 
+ 
+ /* ===========================================
+    Helpers
+    =========================================== */
+ 
+ .structural {
+    position: absolute;
+    left: -9999px;
+ }
+ 
+ .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+ }
+ 
+ .ir {
+    display: block;
+    background-size: 100%; 
+    text-indent: 150%;
+    white-space: nowrap;
+    overflow: hidden;
+ }
+ 
+ .hidden {
+    position: absolute !important;
+    visibility: hidden !important;
+    z-index: -1 !important;
+ }
