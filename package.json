@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LoranMaes/Routio---A-Strava-Application/issues"
   },
-  "homepage": "https://github.com/LoranMaes/Routio---A-Strava-Application#readme"
+  "homepage": "https://github.com/LoranMaes/Routio---A-Strava-Application#readme",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
 }
