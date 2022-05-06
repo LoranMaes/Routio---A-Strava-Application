@@ -1,0 +1,19 @@
+{
+  "name": "routio-strava",
+  "version": "1.0.0",
+  "description": "A service that uses the Strava API to show a user's routes. It also has the ability to share those routes between users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoranMaes/Routio---A-Strava-Application.git"
+  },
+  "author": "Loran Maes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoranMaes/Routio---A-Strava-Application/issues"
+  },
+  "homepage": "https://github.com/LoranMaes/Routio---A-Strava-Application#readme"
+}
