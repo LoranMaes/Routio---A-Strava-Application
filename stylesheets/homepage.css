@@ -1,0 +1,57 @@
+.fold{
+    position: relative;
+    height: calc(100vh - 10.4rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fold h1{
+    margin-top: 0;
+    margin-bottom: 1.6rem;
+    max-width: 775px;
+    text-shadow: 10px var(--blackshadow);
+    font-weight: 700;
+}
+
+.info{
+    padding-left: var(--clamp);
+}
+
+.fold .right-side{
+    padding-right: var(--clamp);
+}
+
+.fold button.beige{
+    margin-left: 5.2rem;
+    font-weight: 600;
+}
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.fold .video{
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 10.4rem);
+    z-index: -1;
+    filter: blur(.15rem);
+}
+
+.big-card{
+    background-color: rgba(249, 249, 249, .75);
+    padding: var(--clamp);
+    border-radius: 1rem;
+    box-shadow: 4px 0 5px 2px var(--blackshadow);
+}

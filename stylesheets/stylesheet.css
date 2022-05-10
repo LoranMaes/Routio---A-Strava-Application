@@ -1,11 +1,149 @@
 :root{
-    
+    --darkPrimary: #2E2E2E;
+    --primary: #333;
+    --bg: #f9f9f9;
+    --darkBeige: #E8D394;
+    --gray: #AEAEAE;
+
+    --blackshadow: rgba(0, 0, 0, .25);
+    --gaptext: 3.6rem;
+    --clamp: clamp(1rem, 8vw, 4rem);
 }
 
+/* HELPER */
 html{
     font-size: 62.5%;
+    font-family: 'Poppins', 'Sans-Serif';
+    background-color: var(--bg);
 }
 
 body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
+main{
+    background-image: url("../assets/background-zigzag.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+/* TYPOGRAPHY */
+h1{
+    font-size: 4.8rem;
+    line-height: 7.2rem;
+}
+
+h1.hero{
+    font-size: 6.8rem;
+    line-height: 10.2rem;
+}
+
+h2{
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+}
+
+h3,
+p.title{
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+}
+
+p, a{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+p.small{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+hr{
+    border: none;
+    height: 2px;
+    background-color: var(--primary);
+    border-radius: 5rem;
+    width: 5rem;
+}
+
+.capital{
+    text-transform: uppercase;
+}
+
+.white{
+    color: var(--bg);
+}
+
+.primary{
+    color: var(--primary);
+}
+
+/* COMPONENTS */
+button{
+    cursor: pointer;
+    border: none;
+    padding: .75rem 3.2rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    width: fit-content;
+}
+
+button.beige{
+    background-color: var(--darkBeige);
+    color: var(--primary);
+    font-weight: 400;
+    box-shadow: 4px 0 4px 0 var(--blackshadow);
+}
+
+/* HEADER - NAVBAR */
+header{
+    box-shadow: 0 10px 10px 5px var(--blackshadow);
+    padding: 1.6rem var(--clamp);
+}
+
+nav > h1 > a{
+    display: block;
+    text-align: center;
+}
+
+nav > #logo-nav{
+    background-image: url("../assets/app/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+nav > ul{
+    display: flex;
+    gap: var(--gaptext)
+}
+
+nav  h1{
+    margin: 0;
+}
+
+nav a:hover ~ a:not(:hover){
+    color: var(--gray);
 }

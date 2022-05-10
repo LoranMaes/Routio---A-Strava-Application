@@ -4,21 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/app/favicon.png">
     
     <link rel="stylesheet" href="./stylesheets/common.css">
     <link rel="stylesheet" href="./stylesheets/normalize.css">
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="./stylesheets/homepage.css">
 
     <script src="https://kit.fontawesome.com/37011ef0e7.js" crossorigin="anonymous"></script>
+    <script src="./scripts/index.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Routio - A Strava Powered Application</title>
 </head>
 <body>
     <header>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Routio</a></li>
+            </ul>
 
+            <a class="ir" id="logo-nav"><h1>Routio</h1></a>
+
+            <ul>
+                <li><a href="">Our mission</a></li>
+                <li><a href="">How to use</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-
+        <div class="fold">
+            <div class="video">
+                <video id="background-video" autoplay loop muted poster="./assets/videos/cycling-homepage.mp4">
+                    <source src="./assets/videos/cycling-homepage.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="info">
+                <h1 class="hero white">Your favourite routes, all in one place</h1>
+                <button class="beige">My routes</button>
+            </div>
+            
+            <div class="right-side">
+                <div class="big-card">
+                    <div class="map">
+    
+                    </div>
+    
+                    <p class="title">Route name</p>
+                    <hr>
+    
+                    <div class="statistics">
+                        <div class="left">
+                            <div class="line">
+                                <i ></i>
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <i></i>
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <i></i>
+                                <p></p>
+                            </div>
+                        </div>
+    
+                        <div class="right">
+                            <div class="line">
+                                <i ></i>
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <i></i>
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <i></i>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer>
