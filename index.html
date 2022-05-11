@@ -22,15 +22,15 @@
     <header>
         <nav>
             <ul class="notMobile">
-                <li><a href="">Home</a></li>
-                <li><a href="">Routio</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#whatIsRoutio">Routio</a></li>
             </ul>
 
             <a class="ir" id="logo-nav"><h1>Routio</h1></a>
 
             <ul class="notMobile">
-                <li><a href="">Our mission</a></li>
-                <li><a href="">How to use</a></li>
+                <li><a href="#ourMission">Our mission</a></li>
+                <li><a href="#howToUse">How to use</a></li>
             </ul>
 
             <div id="hamburger" aria-expanded="false">
@@ -40,16 +40,16 @@
             </div>
             
             <ul class="mobile">
-                <li><a href="">Home</a></li>
-                <li><a href="">Routio</a></li>
-                <li><a href="">Our mission</a></li>
-                <li><a href="">How to use</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#whatIsRoutio">Routio</a></li>
+                <li><a href="#ourMission">Our mission</a></li>
+                <li><a href="#howToUse">How to use</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="fold">
+        <div class="fold" id="home">
             <div class="video">
                 <video id="background-video" autoplay loop muted poster="./assets/videos/cycling-homepage.mp4">
                     <source src="./assets/videos/cycling-homepage.mp4" type="video/mp4">
@@ -138,7 +138,7 @@
         </div>
 
         <div class="what-is">
-            <p class="title bold capital">What is Routio?</p>
+            <p class="title bold capital" id="whatIsRoutio">What is Routio?</p>
             <p>Routio is an easy to use tool that shows your Strava routes in a simple way.
                 We made it so that you’ll never have to scroll endlessly in search for a route.
                 Whether you are on vacation, at home or when you are riding or running at home.
@@ -162,7 +162,7 @@
         </div>
 
         <div class="our-mission">
-            <p class="title bold capital">Our mission</p>
+            <p class="title bold capital" id="ourMission">Our mission</p>
             <div class="big-image">
                 <h1 class="capital white">Taking you places you've never seen before</h1>
             </div>
@@ -184,7 +184,8 @@
             </div>
         </div>
 
-        <div class="guide">
+        <div class="guide" id="howToUse">
+            <p class="title capital bold">Step-by-step guide</p>
             <h1 class="bold capital">under construction</h1>
         </div>
     </main>

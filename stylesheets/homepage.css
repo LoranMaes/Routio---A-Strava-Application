@@ -104,7 +104,8 @@ img.icon-card{
 }
 .what-is p.title,
 .our-mission p.title,
-.our-mission .review{
+.our-mission .review,
+.guide p.title{
     text-align: center;
     font-size: 3.6rem;
 }
