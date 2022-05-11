@@ -1,0 +1,13 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 10.4rem);
+}
+
+button.beige{
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+    font-weight: 700;
+    height: fit-content;
+}

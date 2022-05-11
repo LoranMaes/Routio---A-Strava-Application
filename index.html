@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
     <link rel="stylesheet" href="./stylesheets/homepage.css">
 
-    <script src="https://kit.fontawesome.com/37011ef0e7.js" crossorigin="anonymous"></script>
     <script src="./scripts/index.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,14 +21,27 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="notMobile">
                 <li><a href="">Home</a></li>
                 <li><a href="">Routio</a></li>
             </ul>
 
             <a class="ir" id="logo-nav"><h1>Routio</h1></a>
 
-            <ul>
+            <ul class="notMobile">
+                <li><a href="">Our mission</a></li>
+                <li><a href="">How to use</a></li>
+            </ul>
+
+            <div id="hamburger" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="mobile">
+                <li><a href="">Home</a></li>
+                <li><a href="">Routio</a></li>
                 <li><a href="">Our mission</a></li>
                 <li><a href="">How to use</a></li>
             </ul>
@@ -45,51 +57,135 @@
             </div>
             <div class="info">
                 <h1 class="hero white">Your favourite routes, all in one place</h1>
-                <button class="beige">My routes</button>
+                <button id="btnToRoutes" class="beige">My routes</button>
             </div>
             
             <div class="right-side">
                 <div class="big-card">
                     <div class="map">
-    
+                        <!-- IMAGE THROUGH CSS -->
                     </div>
     
-                    <p class="title">Route name</p>
+                    <p class="title bold">My Favourite Route</p>
                     <hr>
-    
                     <div class="statistics">
-                        <div class="left">
+                        <!-- PHONE SIZED CARD -->
+                        <div class="upperInfoPhone">
                             <div class="line">
-                                <i ></i>
-                                <p></p>
+                                <img class="icon-card" src="./assets/icons/icon-route.png" alt="route icon for info">
+                                <p>140 km</p>
                             </div>
                             <div class="line">
-                                <i></i>
-                                <p></p>
+                                <img class="icon-card" src="./assets/icons/icon-mountain.png" alt="elevation icon for info">
+                                <p>1.358 m</p>
+                            </div>
+                        </div>
+    
+                        <div class="centerInfoPhone">
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-bike.png" alt="bike icon info">
                             </div>
                             <div class="line">
-                                <i></i>
+                                <img class="icon-card" src="./assets/icons/icon-share.png" alt="share icon info">
+                            </div>
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-download.png" alt="download icon info">
+                            </div>
+                        </div>
+
+                        <!-- DESKTOP SIZED CARD -->
+                        <div class="leftDesktop">
+                            <div class="line">
+                                <img src="./assets/icons/icon-route.png" alt="route icon for info">
+                                <p>140km</p>
+                            </div>
+                            <div class="line">
+                                <img src="./assets/icons/icon-mountain.png" alt="elevation icon for info">
+                                <p>1.358 m</p>
+                            </div>
+                            <div class="line">
+                                <img src="./assets/" alt="">
                                 <p></p>
                             </div>
                         </div>
     
-                        <div class="right">
+                        <div class="rightDesktop">
                             <div class="line">
-                                <i ></i>
+                                <img src="" alt="">
                                 <p></p>
                             </div>
                             <div class="line">
-                                <i></i>
+                                <img src="" alt="">
                                 <p></p>
                             </div>
                             <div class="line">
-                                <i></i>
+                                <img src="" alt="">
                                 <p></p>
                             </div>
+
+                        </div>
+                        
+                        <div class="stars">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid-half.svg" alt="half open star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-open.svg" alt="open star for review">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="what-is">
+            <p class="title bold capital">What is Routio?</p>
+            <p>Routio is an easy to use tool that shows your Strava routes in a simple way.
+                We made it so that you’ll never have to scroll endlessly in search for a route.
+                Whether you are on vacation, at home or when you are riding or running at home.
+                Routio has everything you have ever wanted and even more.</p>
+            <p>We are improving all the time to try and give you the best experience you ever had.
+                We try to make it as simple as possible for you to use routes, share routes and find routes based on your current location.
+                Imagine going on a trip and wanting to ride your bike. You just go to Routio and you  ar able to search for a route close to you.</p>
+            <p>Routio automatically syncs your Strava routes, so you don’t have to do anything yourself, isn’t that super handy?!</p>
+        </div>
+
+        <div class="images-parallax">
+            <div class="first">
+                <h1 class="title capital white img-text">Make</h1>
+            </div>
+            <div class="second">
+                <h1 class="title capital primary img-text">Riding</h1>
+            </div>
+            <div class="third">
+                <h1 class="title capital white img-text">Fun</h1>
+            </div>
+        </div>
+
+        <div class="our-mission">
+            <p class="title bold capital">Our mission</p>
+            <div class="big-image">
+                <h1 class="capital white">Taking you places you've never seen before</h1>
+            </div>
+
+            <div class="text">
+                <p>We want to give you the best experience while doing your favourite workouts.<br>
+    As sports enthousiasts ourselves, we love training in a safe and amazing environment.<br>
+    Taking out your bike or running shoes at a place you’ve never been to before can be difficult and we’d love to make that process easier.<br>
+    By sharing routes we can make a “nice” day on the bike to an “amazing” day with help of our 1,000+ users.
+                </p>
+                <p>- The Routio Team</p>
+                <img src="./assets/app/logo.png" alt="logo of Routio" class="logo">
+            </div>
+
+            <div class="review">
+                <p class="reviewText">“I never had such a beautiful cycling vacation thanks to Routio”</p>
+                <p class="reviewText">- A client</p>
+                <button class="beige">Reviews</button>
+            </div>
+        </div>
+
+        <div class="guide">
+            <h1 class="bold capital">under construction</h1>
         </div>
     </main>
     

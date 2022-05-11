@@ -92,6 +92,14 @@ hr{
     color: var(--primary);
 }
 
+.bold{
+    font-weight: 600;
+}
+
+.img-text{
+    font-weight: 800;
+}
+
 /* COMPONENTS */
 button{
     cursor: pointer;
@@ -133,6 +141,8 @@ nav{
     align-items: center;
     max-width: 1280px;
     margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 nav > ul{
@@ -144,6 +154,99 @@ nav  h1{
     margin: 0;
 }
 
-nav a:hover ~ a:not(:hover){
-    color: var(--gray);
+nav ul.notMobile{
+    visibility: hidden;
+    z-index: -1;
+    position: absolute;
+}
+
+#hamburger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 3rem;
+    height: 3rem;
+}
+
+#hamburger span{
+    height: 3px;
+    background-color: var(--darkPrimary);
+    box-shadow: 0 2px 2px 0 var(--blackshadow);
+}
+
+#hamburger[aria-expanded=false] span:nth-child(1){
+    width: 65%;
+    margin-left: 35%;
+    transition: 350ms;
+}
+#hamburger[aria-expanded=false] span:nth-child(2){
+    width: 100%;
+    transition: 500ms;
+}
+
+#hamburger[aria-expanded=false] span:nth-child(3){
+    width: 65%;
+    transition: 350ms;
+}
+
+ul.mobile{
+    padding-top: 3.6rem;
+    padding-bottom: 1.6rem;
+    flex-direction: column;
+    width: 100%;
+}
+
+#hamburger[aria-expanded=true] span:nth-child(1){
+    width: 100%;
+    margin-top: 5%;
+    transition: 350ms;
+}
+#hamburger[aria-expanded=true] span:nth-child(2){
+    width: 0;
+    opacity: 0;
+    margin-left: 50%;
+    transition: 500ms;
+}
+#hamburger[aria-expanded=true] span:nth-child(3){
+    width: 100%;
+    margin-bottom: 5%;
+    transition: 350ms;
+}
+
+#hamburger[aria-expanded=true] + ul.mobile{
+    animation: headerMobile 500ms forwards;
+}
+
+#hamburger[aria-expanded=false] + ul.mobile{
+    animation: headerMobileBack 500ms linear forwards;
+}
+
+@keyframes headerMobile {
+    0%{
+        margin-top: -40rem;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+@keyframes headerMobileBack {
+    0%{
+        margin-top: 0;
+        opacity: 1;
+    }
+    10%{
+        opacity: 0;
+    }
+    100%{
+        margin-top: -50rem;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: -1
+    }
 }
