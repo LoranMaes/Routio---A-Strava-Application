@@ -227,5 +227,7 @@ img.icon-card{
 
     /* MAKE THE PHONE LAYOUT INVISIBLE */
     .big-card .upperInfoPhone,
-    .big-card .centerInfoPhone
+    .big-card .centerInfoPhone{
+        
+    }
 }
