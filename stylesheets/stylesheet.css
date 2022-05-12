@@ -93,8 +93,16 @@ hr{
     color: var(--primary);
 }
 
+.gray{
+    color: var(--gray);
+}
+
 .bold{
     font-weight: 600;
+}
+
+.italic{
+    font-style: italic;
 }
 
 .img-text{
@@ -116,6 +124,43 @@ button.beige{
     color: var(--primary);
     font-weight: 400;
     box-shadow: 4px 0 4px 0 var(--blackshadow);
+}
+
+    /* FLOATING LABEL */
+label.floating{
+    position: relative;
+}
+
+label.floating span.placeholder{
+    font-size: 1.4rem;
+    position: absolute;
+    bottom: 5%;
+    left: 1.6rem;
+    color: var(--primary);
+    transition: 350ms;
+}
+
+label.floating input[type=text]{
+    font-size: 1.4rem;
+    border: solid 1px var(--gray);
+    border-radius: .5rem;
+    padding: 1.6rem;
+    background-color: var(--bg);
+}
+label.floating input[type=text]:active + span.placeholder{
+    opacity: .75;
+    top: -100%;
+    font-size: 1.2rem;
+    left: .6rem;
+    transition: 350ms;
+}
+
+label.floating input[type=text]:valid  + span.placeholder{
+    opacity: .75;
+    top: -100%;
+    font-size: 1.2rem;
+    left: .6rem;
+    transition: 350ms;
 }
 
 /* HEADER - NAVBAR */
@@ -199,7 +244,7 @@ ul.mobile{
 
 #hamburger[aria-expanded=true] span:nth-child(1){
     width: 100%;
-    margin-top: 5%;
+    margin-top: 25%;
     transition: 350ms;
 }
 #hamburger[aria-expanded=true] span:nth-child(2){
@@ -210,18 +255,86 @@ ul.mobile{
 }
 #hamburger[aria-expanded=true] span:nth-child(3){
     width: 100%;
-    margin-bottom: 5%;
+    margin-bottom: 25%;
     transition: 350ms;
 }
-
 #hamburger[aria-expanded=true] + ul.mobile{
     animation: headerMobile 500ms forwards;
 }
-
 #hamburger[aria-expanded=false] + ul.mobile{
     animation: headerMobileBack 500ms linear forwards;
 }
 
+/* FOOTER */
+footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2.4rem;
+}
+
+footer p.footer-title{
+    margin-bottom: 0;
+}
+
+footer .sign-up-information{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+footer .sign-up-information button.beige{
+    margin: 0 auto;
+}
+
+footer .sign-up-information label{
+    display: flex;
+    justify-content: center;
+}
+
+label.floating span.placeholder{
+    left: 28.5%;
+    bottom: 35%
+}
+
+label.floating input[type=text]:valid  + span.placeholder{
+    left: 27.5%;
+    top: 10%
+}
+label.floating input[type=text]:active  + span.placeholder{
+    left: 27.5%;
+    top: 10%
+}
+
+footer .socials{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+footer .links a{
+    width: 50%;
+}
+
+footer .links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem 0;
+}
+
+footer p.powered{
+    margin-bottom: 0;
+}
+
+footer img.strava-logo{
+    position: absolute;
+    width: 5rem;
+    bottom: 0;
+    left: 0;
+}
+
+/* ANIMATIONS */
 @keyframes headerMobile {
     0%{
         margin-top: -40rem;
@@ -251,3 +364,9 @@ ul.mobile{
         z-index: -1
     }
 }
+
+/* RESPONSIVE GENERAL STYLES */
+
+/* HEADER */
+
+/* FOOTER */

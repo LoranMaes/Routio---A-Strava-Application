@@ -116,12 +116,14 @@ img.icon-card{
     height: 100vh;
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
 }
 .images-parallax .second{
     background: url("../assets/img/homepage/running-on-mountain.jpg") no-repeat;
     height: 100vh;
     background-size: cover;
     background-attachment: fixed;
+    background-position: 75%;
 }
 .images-parallax .third{
     background: url("../assets/img/homepage/bike-on-hill.jpg") no-repeat;
