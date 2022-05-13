@@ -4,25 +4,248 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/app/favicon.png">
     
     <link rel="stylesheet" href="./stylesheets/common.css">
     <link rel="stylesheet" href="./stylesheets/normalize.css">
     <link rel="stylesheet" href="./stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="./stylesheets/homepage.css">
 
-    <script src="https://kit.fontawesome.com/37011ef0e7.js" crossorigin="anonymous"></script>
+    <script src="./scripts/index.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Routio - A Strava Powered Application</title>
 </head>
 <body>
     <header>
+        <nav>
+            <ul class="notMobile">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#whatIsRoutio">Routio</a></li>
+            </ul>
 
+            <a class="ir" id="logo-nav"><h1>Routio</h1></a>
+
+            <ul class="notMobile">
+                <li><a href="#ourMission">Our mission</a></li>
+                <li><a href="#howToUse">How to use</a></li>
+            </ul>
+
+            <div id="hamburger" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="mobile">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#whatIsRoutio">Routio</a></li>
+                <li><a href="#ourMission">Our mission</a></li>
+                <li><a href="#howToUse">How to use</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+        <div class="fold" id="home">
+            <div class="video">
+                <video id="background-video" autoplay loop muted poster="./assets/videos/cycling-homepage.mp4">
+                    <source src="./assets/videos/cycling-homepage.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="info">
+                <h1 class="hero white capital bold">Your favourite routes, all in one place</h1>
+                <button id="btnToRoutes" class="beige">My routes</button>
+            </div>
 
+            <div class="right-side">
+                <div class="big-card">
+                    <div class="map">
+                        <!-- IMAGE THROUGH CSS -->
+                    </div>
+    
+                    <p class="title bold">My Favourite Route</p>
+                    <hr>
+                    <div class="statistics">
+                        <!-- PHONE SIZED CARD -->
+                        <div class="upperInfoPhone">
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-route.png" alt="route icon for info">
+                                <p>140 km</p>
+                            </div>
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-mountain.png" alt="elevation icon for info">
+                                <p>1.358 m</p>
+                            </div>
+                        </div>
+    
+                        <div class="centerInfoPhone">
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-bike.png" alt="bike icon info">
+                            </div>
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-share.png" alt="share icon info">
+                            </div>
+                            <div class="line">
+                                <img class="icon-card" src="./assets/icons/icon-download.png" alt="download icon info">
+                            </div>
+                        </div>
+
+                        <!-- DESKTOP SIZED CARD -->
+                        <div class="leftDesktop">
+                            <div class="line">
+                                <img src="./assets/icons/icon-route.png" alt="route icon for info">
+                                <p>140km</p>
+                            </div>
+                            <div class="line">
+                                <img src="./assets/icons/icon-mountain.png" alt="elevation icon for info">
+                                <p>1.358 m</p>
+                            </div>
+                            <div class="line">
+                                <img src="./assets/" alt="">
+                                <p></p>
+                            </div>
+                        </div>
+    
+                        <div class="rightDesktop">
+                            <div class="line">
+                                <img src="" alt="">
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <img src="" alt="">
+                                <p></p>
+                            </div>
+                            <div class="line">
+                                <img src="" alt="">
+                                <p></p>
+                            </div>
+
+                        </div>
+                        
+                        <div class="stars">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid.svg" alt="solid star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-solid-half.svg" alt="half open star for review">
+                            <img class="icon-card" src="./assets/icons/icon-star-open.svg" alt="open star for review">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="what-is">
+            <p class="title bold capital" id="whatIsRoutio">What is Routio?</p>
+            <p>Routio is an easy to use tool that shows your Strava routes in a simple way.
+                We made it so that you’ll never have to scroll endlessly in search for a route.
+                Whether you are on vacation, at home or when you are riding or running at home.
+                Routio has everything you have ever wanted and even more.</p>
+            <p>We are improving all the time to try and give you the best experience you ever had.
+                We try to make it as simple as possible for you to use routes, share routes and find routes based on your current location.
+                Imagine going on a trip and wanting to ride your bike. You just go to Routio and you  ar able to search for a route close to you.</p>
+            <p>Routio automatically syncs your Strava routes, so you don’t have to do anything yourself, isn’t that super handy?!</p>
+        </div>
+
+        <div class="images-parallax">
+            <div class="first">
+                <h1 class="title capital white img-text">Make</h1>
+            </div>
+            <div class="second">
+                <h1 class="title capital primary img-text">Riding</h1>
+            </div>
+            <div class="third">
+                <h1 class="title capital white img-text">Fun</h1>
+            </div>
+        </div>
+
+        <div class="our-mission">
+            <p class="title bold capital" id="ourMission">Our mission</p>
+            <div class="big-image">
+                <h1 class="capital white">Taking you places you've never seen before</h1>
+            </div>
+
+            <div class="text">
+                <p>We want to give you the best experience while doing your favourite workouts.<br>
+    As sports enthousiasts ourselves, we love training in a safe and amazing environment.<br>
+    Taking out your bike or running shoes at a place you’ve never been to before can be difficult and we’d love to make that process easier.<br>
+    By sharing routes we can make a “nice” day on the bike to an “amazing” day with help of our 1,000+ users.
+                </p>
+                <p>- The Routio Team</p>
+                <img src="./assets/app/logo.png" alt="logo of Routio" class="logo">
+            </div>
+
+            <div class="review">
+                <p class="reviewText">“I never had such a beautiful cycling vacation thanks to Routio”</p>
+                <p class="reviewText">- A client</p>
+                <button class="beige">Reviews</button>
+            </div>
+        </div>
+
+        <div class="guide" id="howToUse">
+            <p class="title capital bold">Step-by-step guide</p>
+            <h1 class="bold capital">Under construction</h1>
+            <h2 class="bold capital">Moving animation on scroll</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis commodi eum quia, alias placeat eveniet! Rerum non, adipisci autem omnis vero dolores explicabo tenetur et ullam ipsum sint, magni mollitia!
+            Aliquam ea error consectetur totam in pariatur nemo ipsa, libero officiis, optio voluptatum. Vero vitae voluptates, et blanditiis voluptas ea, illo eligendi, at aliquid temporibus veniam consectetur animi eum provident?
+            Illum velit ipsum maxime debitis, et ipsam voluptate unde omnis corrupti quam voluptas, dicta aliquam, nihil doloribus asperiores laudantium! Nobis alias ex iure maxime consequatur neque minus perferendis sint pariatur?
+            Ipsa explicabo odit aliquid fuga debitis ipsum cum odio quibusdam repellendus labore iusto, tenetur beatae dignissimos nulla tempora nam in fugit esse totam atque. Est facilis id itaque adipisci aut?
+            Illum mollitia quidem provident dolores, repellendus maxime nemo harum? Temporibus nostrum, similique error odit ut natus reiciendis voluptas? Fugit repudiandae, odit officia perferendis fugiat hic ab nemo iusto suscipit voluptatibus?
+            Voluptates repellat voluptatibus, eum dolores veniam praesentium obcaecati quasi ut at minus iste libero, voluptate illo qui cupiditate maiores consectetur beatae quo, nam cumque reiciendis repudiandae. Praesentium dolor nisi libero.
+            Vitae quos error repellendus fugiat maiores consequatur, voluptates accusamus ducimus aut debitis eius! Atque saepe nesciunt, facilis quo cum distinctio illum minima tempora commodi possimus illo? Laborum a nesciunt pariatur.
+            Explicabo quasi, quibusdam soluta temporibus modi possimus, cum minus illo sit corporis ut quidem debitis saepe aut aliquam? Culpa provident a sapiente soluta iure aperiam iusto error consequatur dolores neque.
+            Perspiciatis fuga facere temporibus, nisi deleniti dicta dolorem officia. Aliquid asperiores sed exercitationem officiis ex ea repellat velit quo ipsa, saepe dolor eum ad. Sint eaque fugiat consequuntur nemo architecto!
+            Tenetur incidunt deleniti nam non in consectetur minus, dignissimos illo! Quidem aliquid, nesciunt expedita cum alias consequuntur autem dolorum. Iure assumenda eveniet molestias, dicta recusandae maiores voluptates facere mollitia sapiente.
+            Nostrum qui nesciunt numquam facere commodi deserunt perspiciatis inventore officiis! Tenetur voluptatem magni deserunt labore excepturi facilis error, quis odio? A laboriosam delectus quidem accusamus nostrum reprehenderit fugit numquam quod.
+            Quis ab nulla fugit architecto asperiores nesciunt adipisci accusamus aperiam blanditiis! Incidunt molestias maxime necessitatibus placeat deleniti, quisquam, officia beatae repudiandae ratione maiores est ipsam. Delectus maiores odit blanditiis dolore.
+            A similique harum facere ipsam rem aliquid dolore suscipit enim molestias, officiis laborum et sapiente eveniet velit cum odio maxime non quis repellendus ducimus culpa voluptatibus. Pariatur corrupti illum maxime.
+            Autem, vitae odio deleniti, velit ratione voluptatem repellendus quibusdam quos delectus in animi reiciendis amet voluptas expedita, ea necessitatibus sunt eveniet placeat facere aut modi maiores vero atque? Tempora, pariatur.
+            Inventore sed veniam expedita saepe. Impedit aut explicabo quos illo iusto soluta natus, voluptatum illum, eveniet atque maiores et! Laboriosam, atque. Labore quibusdam a facilis iusto illum optio placeat deserunt?
+            Porro adipisci commodi nostrum, nesciunt est quidem autem quod ipsam hic quos? Vero quod tempore corporis eius libero nobis maxime facilis est debitis voluptatibus! Fugit vel quam delectus eligendi quasi.
+            Odio aliquam error autem accusantium maxime? Quis dolore voluptas eligendi eveniet culpa hic perferendis, beatae, laborum commodi aliquam, dicta pariatur? Est voluptatem ipsa, id sunt magnam earum deleniti odit asperiores.
+            Excepturi ipsum magnam maxime obcaecati consequuntur quas sit harum laborum illo suscipit! Corporis asperiores provident placeat nihil, sint, dolorem, illo ipsum deleniti sed repudiandae magni vel quas est possimus beatae.
+            Nulla temporibus minima impedit voluptatibus cumque omnis consequatur molestiae labore exercitationem id maxime enim in voluptas nisi deleniti, minus ratione quisquam? Voluptas harum quibusdam aut perspiciatis veritatis deserunt delectus aliquid!
+            Mollitia praesentium commodi omnis? Culpa ipsa explicabo alias corrupti, recusandae voluptate minus labore suscipit quae atque consequuntur, ipsum voluptatem nostrum veritatis! In, doloremque? Similique, perspiciatis architecto fugit nihil numquam officia?
+            Inventore distinctio quia pariatur obcaecati ipsa et sapiente explicabo dignissimos, doloremque nemo ea, tenetur mollitia, maiores fuga iure laboriosam ducimus fugiat error ex officiis velit? Soluta tempore voluptates incidunt architecto?
+            Quidem ipsa ad ullam dolorum totam! Nihil voluptates, dignissimos illum quam fugiat tempora. Quam magnam odio distinctio omnis iste est quis quae facere, quas dolorum ducimus aspernatur ad nulla! Cum.
+            Facere perspiciatis nam aspernatur labore aut, facilis tempore quaerat accusantium maiores alias dicta, harum at atque sint quae odit molestiae tempora voluptatem asperiores itaque porro iure! Fugit minus earum facilis?
+            Id quos dignissimos provident atque cum facere veritatis distinctio odio harum deserunt, possimus numquam necessitatibus perferendis recusandae asperiores eum dolores suscipit voluptate enim earum ipsa! Est in beatae laboriosam quisquam?
+            Distinctio veniam accusantium delectus soluta eligendi perspiciatis blanditiis dolore numquam fugiat eius suscipit cumque consequuntur sapiente ea animi quidem dignissimos dolorem quos repudiandae totam, atque odio ipsam cum. Enim, accusamus!
+            Beatae aperiam aspernatur magni nostrum ratione eligendi similique officiis nihil nam tempore voluptatem sapiente nobis inventore, minima quia incidunt, et sed non facilis ullam fuga. Dolor earum aperiam sint aspernatur.
+            Magnam aspernatur, impedit iste quo praesentium id ex quasi incidunt nostrum deleniti assumenda cum mollitia possimus dolorum ut reprehenderit. Quasi ullam debitis ipsa! Praesentium accusantium placeat provident fugit facere. Totam.
+            Possimus, laudantium. Iure vitae ipsam, corporis voluptates aperiam libero atque, omnis nulla saepe ad minima doloribus. Porro, nihil ut. Cumque ipsa, cupiditate voluptas facilis iusto nemo magni explicabo fugit illo!
+            Ea commodi repellendus labore dignissimos officiis quidem velit. Facilis nostrum saepe officia hic rerum, beatae ad culpa quibusdam esse officiis. Ex voluptatem labore, porro rerum sint similique nulla dolorum nostrum.
+            Ipsam, rem voluptatem qui culpa officia atque aliquam placeat ab mollitia vitae fugiat, corrupti obcaecati libero nam pariatur quaerat natus tempora eum, ullam nulla temporibus. Enim doloremque fuga hic quis.</p>
+        </div>
     </main>
     
     <footer>
+        <p class="footer-title">Don't forget to follow our newsletter!</p>
+        <div class="sign-up-information">
+            <label class="floating" for="emailSignUp">
+                <input type="text" id="emailSignUp" name="emailSignUp" required>
+                <span class="placeholder">john.doe@johndoe.com</span>
+            </label>
+            <button class="beige" id="newsletterSignUp">Sign up</button>
+        </div>
+        <div class="socials">
+            <a href=""><img src="./assets/icons/twitter.png" alt="logo for Twitter"></a>
+            <a href=""><img src="./assets/icons/facebook.png" alt="logo for Facebook"></a>
+            <a href=""><img src="./assets/icons/insta.png" alt="logo for Instagram"></a>
+            <a href=""><img src="./assets/icons/strava.png" alt="logo for Strava"></a>
+        </div>
+        <div class="links">
+            <a href="">Contact us</a>
+            <a href="">FAQ</a>
+            <a href="">Privacy</a>
+            <a href="">Terms of use</a>
+        </div>
 
+        <p class="gray italic small powered">Powered and designed by Loran Maes &copy;</p>
+        <img src="./assets/icons/powered-by-strava.png" alt="Powered by Strava" class="strava-logo">
     </footer>
 </body>
 </html>

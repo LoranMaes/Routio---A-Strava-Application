@@ -1,11 +1,469 @@
 :root{
-    
+    --darkPrimary: #2E2E2E;
+    --primary: #333;
+    --bg: #f9f9f9;
+    --darkBeige: #E8D394;
+    --gray: #AEAEAE;
+
+    --blackshadow: rgba(0, 0, 0, .25);
+    --gaptext: 3.6rem;
+    --clamp: clamp(1rem, 8vw, 4rem);
 }
 
+/* HELPER */
 html{
     font-size: 62.5%;
+    font-family: 'Poppins', 'Sans-Serif';
+    background-color: var(--bg);
+    scroll-behavior: smooth;
 }
 
 body{
-
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
+
+main{
+    background-image: url("../assets/background-zigzag.svg");
+    background-position: center;
+    background-size: contain;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+}
+
+/* TYPOGRAPHY */
+h1{
+    font-size: 4.8rem;
+    line-height: 7.2rem;
+}
+
+h1.hero{
+    font-size: 6.8rem;
+    line-height: 10.2rem;
+}
+
+h2{
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+}
+
+h3,
+p.title{
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+}
+
+p, a{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+p.small{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+hr{
+    border: none;
+    height: 2px;
+    background-color: var(--primary);
+    border-radius: 5rem;
+    width: 5rem;
+}
+
+.capital{
+    text-transform: uppercase;
+}
+
+.white{
+    color: var(--bg);
+}
+
+.primary{
+    color: var(--primary);
+}
+
+.gray{
+    color: var(--gray);
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.img-text{
+    font-weight: 800;
+}
+
+/* COMPONENTS */
+button{
+    cursor: pointer;
+    border: none;
+    padding: .75rem 3.2rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    width: fit-content;
+}
+
+button.beige{
+    background-color: var(--darkBeige);
+    color: var(--primary);
+    font-weight: 400;
+    box-shadow: 4px 0 4px 0 var(--blackshadow);
+}
+
+    /* FLOATING LABEL */
+label.floating{
+    position: relative;
+}
+
+label.floating span.placeholder{
+    font-size: 1.4rem;
+    position: absolute;
+    bottom: 5%;
+    left: 1.6rem;
+    color: var(--primary);
+    transition: 350ms;
+}
+
+label.floating input[type=text]{
+    font-size: 1.4rem;
+    border: solid 1px var(--gray);
+    border-radius: .5rem;
+    padding: 1.6rem;
+    background-color: var(--bg);
+}
+label.floating input[type=text]:active + span.placeholder{
+    opacity: .75;
+    top: -100%;
+    font-size: 1.2rem;
+    left: .6rem;
+    transition: 350ms;
+}
+
+label.floating input[type=text]:valid  + span.placeholder{
+    opacity: .75;
+    top: -100%;
+    font-size: 1.2rem;
+    left: .6rem;
+    transition: 350ms;
+}
+
+/* HEADER - NAVBAR */
+header{
+    box-shadow: 0 10px 10px 5px var(--blackshadow);
+    padding: 1.6rem var(--clamp);
+}
+
+nav > h1 > a{
+    display: block;
+    text-align: center;
+}
+
+nav > #logo-nav{
+    background-image: url("../assets/app/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+    max-width: 65rem;
+}
+
+nav > ul{
+    display: flex;
+    gap: var(--gaptext)
+}
+
+nav  h1{
+    margin: 0;
+}
+
+nav ul.notMobile{
+    visibility: hidden;
+    z-index: -1;
+    position: absolute;
+}
+
+#hamburger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 3rem;
+    height: 3rem;
+}
+
+#hamburger span{
+    height: 3px;
+    background-color: var(--darkPrimary);
+    box-shadow: 0 2px 2px 0 var(--blackshadow);
+}
+
+#hamburger[aria-expanded=false] span:nth-child(1){
+    width: 65%;
+    margin-left: 35%;
+    transition: 350ms;
+}
+#hamburger[aria-expanded=false] span:nth-child(2){
+    width: 100%;
+    transition: 500ms;
+}
+
+#hamburger[aria-expanded=false] span:nth-child(3){
+    width: 65%;
+    transition: 350ms;
+}
+
+ul.mobile{
+    padding-top: 3.6rem;
+    padding-bottom: 1.6rem;
+    flex-direction: column;
+    width: 100%;
+}
+
+#hamburger[aria-expanded=true] span:nth-child(1){
+    width: 100%;
+    margin-top: 25%;
+    transition: 350ms;
+}
+#hamburger[aria-expanded=true] span:nth-child(2){
+    width: 0;
+    opacity: 0;
+    margin-left: 50%;
+    transition: 500ms;
+}
+#hamburger[aria-expanded=true] span:nth-child(3){
+    width: 100%;
+    margin-bottom: 25%;
+    transition: 350ms;
+}
+#hamburger[aria-expanded=true] + ul.mobile{
+    animation: headerMobile 500ms forwards;
+}
+#hamburger[aria-expanded=false] + ul.mobile{
+    animation: headerMobileBack 500ms linear forwards;
+}
+
+/* FOOTER */
+footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2.4rem;
+}
+
+footer p.footer-title{
+    margin-bottom: 0;
+}
+
+footer .sign-up-information{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin: 0 auto;
+}
+
+footer .sign-up-information button.beige{
+    margin: 0 auto;
+}
+
+footer .sign-up-information label{
+    display: flex;
+    justify-content: center;
+}
+
+label.floating span.placeholder{
+    bottom: 35%;
+    pointer-events: none;
+}
+
+label.floating input[type=text]:valid  + span.placeholder{
+    left: 5%;
+    top: 10%
+}
+label.floating input[type=text]:active  + span.placeholder{
+    left: 5%;
+    top: 10%
+}
+
+footer .socials{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+footer .links a{
+    width: 50%;
+}
+
+footer .links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem 0;
+}
+
+footer p.powered{
+    margin-bottom: 0;
+    margin: 0 auto;
+}
+
+footer img.strava-logo{
+    position: absolute;
+    width: 5rem;
+    bottom: 0;
+    left: 0;
+}
+
+/* ANIMATIONS */
+@keyframes headerMobile {
+    0%{
+        margin-top: -40rem;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+@keyframes headerMobileBack {
+    0%{
+        margin-top: 0;
+        opacity: 1;
+    }
+    10%{
+        opacity: 0;
+    }
+    100%{
+        margin-top: -50rem;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: -1
+    }
+}
+
+/* RESPONSIVE GENERAL STYLES */
+/* HEADER */
+@media screen and (min-width: 1280px) {
+    nav a{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    nav{
+        max-width: 1560px;
+    }
+    nav ul.notMobile{
+        visibility: visible;
+        position: relative;
+        z-index: auto;
+        gap: 5.2rem;
+    }
+    nav ul.notMobile a{
+        position: relative;
+    }
+
+    nav ul.notMobile a::after{
+        transition: 350ms;
+    }
+
+    nav ul.notMobile a::after{
+        content: '';
+        position: absolute;
+        margin-left: 50%;
+        bottom: -.5rem;
+        left: 0;
+        width: 0;
+        height: 2px;
+        opacity: 0;
+        border-radius: 5rem;
+        background-color: var(--darkPrimary);
+        animation: all 250ms;
+    }
+
+    nav ul.notMobile a:hover::after{
+        width: 120%;
+        margin-left: -10%;
+        opacity: .75;
+        transition: all 250ms;
+    }
+
+    nav ul.mobile,
+    #hamburger{
+        visibility: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    footer p.footer-title{
+        margin: 0 auto;
+    }
+
+    footer .socials{
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    footer .links{
+        justify-content: center;
+        gap: 3.6rem;
+    }
+
+    footer .links a{
+        width: fit-content;
+    }
+
+    footer .socials a img{
+        width: 3rem;
+    }
+
+    footer img.strava-logo{
+        position: absolute;
+        width: 10rem;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+/* FOOTER */

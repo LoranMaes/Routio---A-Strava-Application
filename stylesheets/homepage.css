@@ -1,0 +1,338 @@
+.fold{
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 2.4rem;
+}
+
+.fold h1{
+    margin-top: 2.4rem;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    text-shadow: 10px var(--blackshadow);
+}
+
+.fold button.beige{
+    font-weight: 600;
+    margin-bottom: 2.8rem;
+}
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.fold .video{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    filter: blur(.15rem);
+}
+
+/* CARD INFORMATION FOR PHONE */
+.big-card{
+    width: 85%;
+    margin: 0 auto;
+    background-color: rgba(249, 249, 249, .75);
+    padding: 2.4rem var(--clamp);
+    border-radius: 1rem;
+    box-shadow: 4px 0 5px 2px var(--blackshadow);
+    max-width: 35rem;
+}
+
+.big-card p.title{
+    font-size: 1.6rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.big-card .map{
+    background: url("../assets/img/homepage/map-big-card.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 22.5rem;
+    margin: 0 auto;
+    border-radius: .5rem;
+}
+
+img.icon-card{
+    width: 2rem;
+}
+
+.big-card .statistics{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.upperInfoPhone,
+.centerInfoPhone{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.upperInfoPhone p{
+    margin: 0;
+}
+
+.upperInfoPhone .line,
+.centerInfoPhone .line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* WHAT IS ROUTIO */
+.what-is,
+.our-mission .text,
+.our-mission .review,
+.our-mission h1{
+    padding: 0 1.6rem 
+}
+.what-is p.title,
+.our-mission p.title,
+.our-mission .review,
+.guide p.title{
+    text-align: center;
+    font-size: 5.2rem;
+    font-weight: 800;
+    line-height: 7.8rem;
+}
+
+/* PARALLAX SCROLLING IMAGES */
+.images-parallax .first{
+    background: url("../assets/img/homepage/bike-on-road.jpg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.images-parallax .second{
+    background: url("../assets/img/homepage/running-on-mountain.jpg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 75%;
+}
+.images-parallax .third{
+    background: url("../assets/img/homepage/bike-on-hill.jpg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.images-parallax .first,
+.images-parallax .second,
+.images-parallax .third{
+    position: relative
+}
+
+.images-parallax .first img,
+.images-parallax .second img,
+.images-parallax .third img{
+    height: 100vh;
+    margin-left: -50%;
+}
+
+.images-parallax .first h1,
+.images-parallax .second h1,
+.images-parallax .third h1{
+    transform: rotate(270deg);
+    transform-origin: 0;
+    font-size: 9.6rem;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 5.6rem;
+}
+
+/* OUR MISSION */
+.our-mission p.title{
+    margin-bottom: 2.4rem;
+    margin-top: 9.6rem;
+}
+
+.our-mission h1{
+    margin-top: 0;
+}
+
+.our-mission .big-image{
+    background: url("../assets/img/homepage/cycling-in-forest.jpg") no-repeat;
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.our-mission .text p:nth-child(2){
+    margin-bottom: .25rem;
+}
+
+.our-mission .text img.logo{
+    width: 12.5rem;
+}
+
+.our-mission p.reviewText{
+    color: var(--gray);
+}
+
+
+/* MAKE THE OTHER LAYOUT INVISIBLE FOR MOBILE FIRST */
+.big-card .leftDesktop,
+.big-card .rightDesktop{
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* TABLET */
+@media screen and (min-width: 650px) {
+    .fold h1{
+        font-size: 5.2rem;
+        line-height: 7.8rem;
+    }
+
+    .fold button.beige{
+        font-size: 2.1rem;
+        padding: 1.5rem 6.4rem;
+    }
+
+    .what-is,
+    .our-mission .text,
+    .our-mission .review{
+        padding: clamp(1rem, 8vw, 4rem);
+        max-width: 1560px;
+        margin: 0 auto;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1280px) {
+    p{
+        max-width: 650px;
+    }
+    
+    .what-is p.title,
+    .our-mission p.title,
+    .our-mission p.title,
+    .guide p.title{
+        font-size: 4.2rem;
+        line-height: 6.2rem;  
+        margin: 0 auto;
+    }
+
+    .our-mission .review p.reviewText{
+        margin: 0 auto;
+    }
+
+    .fold{
+        flex-direction: row;
+        align-items: center;
+        height: 100vh;
+        flex-wrap: wrap;
+    }
+
+    .fold h1{
+        margin-top: 0;
+        margin-bottom: 1.6rem;
+        font-size: 7.2rem;
+        line-height: 10.8rem;
+        max-width: 960px;
+        width: fit-content;
+        text-align: start;
+    }
+
+    button.beige{
+        font-size: 1.8rem;
+        padding: 1.25rem 4.2rem;
+        border: 3px solid var(--darkBeige);
+        transition: 250ms;
+    }
+
+    .fold button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        color: var(--bg);
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transform: translateY(.5rem);
+        transition: 250ms;
+    }
+
+    button.beige:not(.fold):hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        font-weight: 500;
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
+    }
+
+    .info{
+        text-align: start;
+    }
+
+    .fold button.beige{
+        margin-left: 5.2rem;
+    }
+
+    .fold .big-card{
+        width: 125%;
+        margin: 0;
+    }
+
+    .what-is{
+        display: flex;
+        flex-direction: column;
+    }
+    .what-is p:nth-child(3){
+        text-align: end;
+        align-items: flex-end;
+        width: 100%;
+        margin: 0 0 0 auto;
+    }
+
+    .images-parallax .first h1,
+    .images-parallax .second h1,
+    .images-parallax .third h1{
+        font-size: 12.4rem;
+        line-height: 18.6rem;
+    }
+
+    .our-mission p.title{
+        margin-top: 9.6rem;
+        margin-bottom: 2.4rem;
+    }
+
+    .our-mission h1{
+        padding-top: 3.6rem;
+        font-weight: 300;
+        max-width: 65rem;
+        text-shadow: 0 0 var(--blackshadow);
+    }
+
+    .our-mission .review{
+        padding-top: 0;
+    }
+
+    @keyframes navlink {
+        0%{
+            width: 0;
+            margin-left: 50%;
+        }
+        100%{
+            width: 120%;
+            margin-left: -10%;
+        }
+    }
+}
