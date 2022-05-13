@@ -30,6 +30,20 @@ main{
     background-size: contain;
 }
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+}
+
 /* TYPOGRAPHY */
 h1{
     font-size: 4.8rem;
@@ -179,6 +193,7 @@ nav > #logo-nav{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
 }
 
 nav{
@@ -283,6 +298,7 @@ footer .sign-up-information{
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    margin: 0 auto;
 }
 
 footer .sign-up-information button.beige{
@@ -295,16 +311,16 @@ footer .sign-up-information label{
 }
 
 label.floating span.placeholder{
-    left: 28.5%;
-    bottom: 35%
+    bottom: 35%;
+    pointer-events: none;
 }
 
 label.floating input[type=text]:valid  + span.placeholder{
-    left: 27.5%;
+    left: 5%;
     top: 10%
 }
 label.floating input[type=text]:active  + span.placeholder{
-    left: 27.5%;
+    left: 5%;
     top: 10%
 }
 
@@ -326,6 +342,7 @@ footer .links{
 
 footer p.powered{
     margin-bottom: 0;
+    margin: 0 auto;
 }
 
 footer img.strava-logo{
@@ -367,7 +384,86 @@ footer img.strava-logo{
 }
 
 /* RESPONSIVE GENERAL STYLES */
-
 /* HEADER */
+@media screen and (min-width: 1280px) {
+    nav a{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    nav{
+        max-width: 1560px;
+    }
+    nav ul.notMobile{
+        visibility: visible;
+        position: relative;
+        z-index: auto;
+        gap: 5.2rem;
+    }
+    nav ul.notMobile a{
+        position: relative;
+    }
+
+    nav ul.notMobile a::after{
+        transition: 350ms;
+    }
+
+    nav ul.notMobile a::after{
+        content: '';
+        position: absolute;
+        margin-left: 50%;
+        bottom: -.5rem;
+        left: 0;
+        width: 0;
+        height: 2px;
+        opacity: 0;
+        border-radius: 5rem;
+        background-color: var(--darkPrimary);
+        animation: all 250ms;
+    }
+
+    nav ul.notMobile a:hover::after{
+        width: 120%;
+        margin-left: -10%;
+        opacity: .75;
+        transition: all 250ms;
+    }
+
+    nav ul.mobile,
+    #hamburger{
+        visibility: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    footer p.footer-title{
+        margin: 0 auto;
+    }
+
+    footer .socials{
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    footer .links{
+        justify-content: center;
+        gap: 3.6rem;
+    }
+
+    footer .links a{
+        width: fit-content;
+    }
+
+    footer .socials a img{
+        width: 3rem;
+    }
+
+    footer img.strava-logo{
+        position: absolute;
+        width: 10rem;
+        bottom: 0;
+        left: 0;
+    }
+}
 
 /* FOOTER */
