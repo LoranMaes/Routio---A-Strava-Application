@@ -11,25 +11,38 @@
     <link rel="stylesheet" href="../../stylesheets/stylesheet.css">
     <link rel="stylesheet" href="./stylesheet.css">
 
-    <script src="../../scripts/index.js" defer></script>
+    <script src="./main.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <title>Routio - Login To Strava</title>
+    <title>Routio - Dashboard</title>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="notMobile">
                 <li><a href="">Home</a></li>
                 <li><a href="">Routio</a></li>
             </ul>
 
             <a class="ir" id="logo-nav"><h1>Routio</h1></a>
 
-            <ul>
+            <ul class="notMobile">
+                <li><a href="">Our mission</a></li>
+                <li><a href="">How to use</a></li>
+            </ul>
+
+            <div id="hamburger" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="mobile">
+                <li><a href="">Home</a></li>
+                <li><a href="">Routio</a></li>
                 <li><a href="">Our mission</a></li>
                 <li><a href="">How to use</a></li>
             </ul>

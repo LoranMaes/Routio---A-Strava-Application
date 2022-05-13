@@ -189,6 +189,7 @@ nav{
     margin: 0 auto;
     position: relative;
     flex-wrap: wrap;
+    max-width: 65rem;
 }
 
 nav > ul{

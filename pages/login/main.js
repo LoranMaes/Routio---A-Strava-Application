@@ -1,7 +1,9 @@
 (function(){
     "use strict"
-    let logo = document.querySelector("#logo-nav")
-    let hamburger = document.querySelector("#hamburger")
+    const logo = document.querySelector("#logo-nav")
+    const hamburger = document.querySelector("#hamburger")
+    const signIn = document.querySelector("#stravaSignIn")
+
     hamburger.addEventListener("click", () => {
         if(hamburger.ariaExpanded == "true"){
             hamburger.ariaExpanded = "false"
@@ -15,20 +17,11 @@
     })
 
     //STRAVA AUTHORISATION
-    const login = document.querySelector("#stravaSignIn")
-    login.addEventListener("click", () => {
-        window.open("http://www.strava.com/oauth/authorize?client_id=84306&response_type=code&redirect_uri=http://127.0.0.1:5500/exchange_token&approval_prompt=force&scope=read_all")
-    })
-
-    const auth = async function(){
-        try{
-            const response = await fetch("")
-            const data = await response.json()
-
-            console.log(data)
-
-        }catch(err){
-            console.log(err)
-        }
+    const request = function(){
+        window.location = "https://www.strava.com/oauth/authorize?client_id=84306&redirect_uri=http://127.0.0.1:5500/pages/dashboard/&response_type=code&scope=read_all&; path=/"
     }
+
+    signIn.addEventListener("click", () => {
+        request()
+    })
 })()
