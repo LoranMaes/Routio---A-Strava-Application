@@ -4,7 +4,7 @@
     let loginBtn = document.querySelector("#btnToRoutes")
     let hamburger = document.querySelector("#hamburger")
     loginBtn.addEventListener("click", () => {
-        window.location = "./pages/login"
+        window.location = "./pages/login/"
     })
     hamburger.addEventListener("click", () => {
         if(hamburger.ariaExpanded == "true"){

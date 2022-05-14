@@ -20,6 +20,7 @@
   "homepage": "https://github.com/LoranMaes/Routio---A-Strava-Application#readme",
   "dependencies": {
     "chart.js": "^3.7.1",
+    "firebase": "^9.8.1",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

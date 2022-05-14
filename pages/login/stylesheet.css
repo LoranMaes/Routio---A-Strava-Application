@@ -1,5 +1,6 @@
 main{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: calc(100vh - 10.4rem);
@@ -10,4 +11,20 @@ button.beige{
     padding-bottom: 1.6rem;
     font-weight: 700;
     height: fit-content;
+    transition: 250ms;
+}
+
+button.beige:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 700;
+    box-shadow: 0 0 25px 10px var(--darkBeige);
+    transition: 250ms;
+}
+
+.light{
+    color: var(--gray);
+}
+
+a.register-link{
+    text-decoration: underline;
 }
