@@ -1,0 +1,127 @@
+:root{
+    --cardLink: linear-gradient(90deg, rgba(232,211,148,1) 0%, rgba(208,186,120,1) 38%, rgba(153,135,74,1) 100%);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+
+main h1{
+    font-weight: 400;
+    text-align: center;
+}
+
+.location-input{
+    position: relative;
+}
+
+.location-input input{
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem 1.6rem;
+    font-size: 1.6rem;
+    width: 66vw;
+    max-width: 960px;
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+}
+
+.location-input input:valid + span.placeholder{
+    transform: translateY(-3rem);
+    transition: all 350ms;
+}
+
+.location-input input:active + span.placeholder{
+    transform: translateY(-3rem);
+    transition: all 350ms;
+}
+
+.location-input input:active ~ span.icon{
+    opacity: 0;
+    transition: all 250ms;
+}
+.location-input input:valid ~ span.icon{
+    opacity: 0;
+    transition: all 250ms;
+}
+
+.location-input span{
+    position: absolute;
+    transition: all 350ms;
+    pointer-events: none;
+}
+
+.location-input span.placeholder{
+    font-size: 1.6rem;
+    bottom: -.2rem;
+    left: 1.6rem;
+}
+
+.location-input span.icon{
+    opacity: 1;
+    right: 1rem;
+    bottom: -.25rem;
+}
+
+.location-input span.icon img{
+    height: 2rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    padding: clamp(1rem, 8vw, 4rem)
+}
+
+.cards .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4.8rem 3.6rem;
+    background: var(--bg);
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    border-radius: 1.6rem;
+}
+
+#logoutBtn{
+    display: block;
+    margin: 2.4rem;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 800px) {
+    .cards{
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    main button.beige{
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+        height: fit-content;
+        transition: 250ms;
+    }
+    
+    main button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
+    }
+    
+    footer button.beige{
+        transition: 250ms;
+    }
+    footer button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        font-weight: 500;
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
+    }
+}

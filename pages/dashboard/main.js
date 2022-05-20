@@ -1,8 +1,10 @@
 (function(){
     "use strict"
 
-    let logo = document.querySelector("#logo-nav")
-    let hamburger = document.querySelector("#hamburger")
+    const logo = document.querySelector("#logo-nav")
+    const hamburger = document.querySelector("#hamburger")
+    const body = document.body
+
     hamburger.addEventListener("click", () => {
         if(hamburger.ariaExpanded == "true"){
             hamburger.ariaExpanded = "false"
@@ -15,68 +17,65 @@
         window.location = "../../"
     })
 
-    const url = new URLSearchParams(document.URL)
-    const urlString = url.toString()
-    if(urlString.includes("code") && urlString.includes("state") && urlString.includes("scope")){
-        const auth_code = url.get('code')
-        sessionStorage.setItem("auth_code", auth_code)
-        const session = sessionStorage.getItem("auth_code")
-
-        /* GET THE DATA IF CODE IS IN THE URL */
-        const getClientId = async function(){
-            fetch(`https://www.strava.com/oauth/token?client_id=84306&client_secret=30e1dd2eac6c3debeb0dc7d068918ac613a15747&code=${auth_code}&grant_type=authorization_code`, {
-                method: "POST"
-            })
-            .then(response => {
-                if(!response.ok){
-                    throw new Error(response.error)
-                }
-                else{
-                    return response.json()
-                }
-            })
-            .then(data => {
-                const access_token = data.access_token
-                const profile_id = data.athlete.id
-
-                fetch(`https://www.strava.com/api/v3/athletes/${profile_id}/routes`, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${access_token}`
-                    }
-                })
-                .then(response => {
-                    if(!response.ok){
-                        throw new Error(response.error)
-                    }
-                    else{
-                        return response.json()
-                    }
-                })
-                .then(data => console.log(data))
-                .catch(err => console.log(err))
-            })
-            .catch(err => console.log(err))
-
-            /*
-            const response = await fetch(`https://www.strava.com/oauth/token?client_id=84306&client_secret=30e1dd2eac6c3debeb0dc7d068918ac613a15747&code=${auth_code}&grant_type=authorization_code`, {
-                method: "POST"
-            })
-            const data = await response.json()
-            const access_token = data.access_token
-            const athlete_id = data.athlete.id
-
-            const getRoutes = async function(){
-                const response = await fetch(`https://www.strava.com/api/v3/athletes/${athlete_id}/routes?page=&per_page=" "Authorization: Bearer [${access_token}]`)
-                const data = await response.json()
-                console.log(data)
-            }
-            */
+    //Header showing when scrolling down
+    const scrollUp = "scroll-up"
+    const scrollDown = "scroll-down"
+    let lastScroll = 0
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset
+        if(currentScroll <= 0){
+            body.classList.remove(scrollUp)
+            return
         }
-        getClientId()
-        
+
+        if(currentScroll > lastScroll && !body.classList.contains(scrollDown)){
+            // down
+            body.classList.remove(scrollUp)
+            body.classList.add(scrollDown)
+        }
+        else if(
+            currentScroll < lastScroll &&
+            body.classList.contains(scrollDown)
+        ){
+            //up
+            body.classList.remove(scrollDown)
+            body.classList.add(scrollUp)
+        }
+        lastScroll = currentScroll
+    })
+
+    //GO TO PERSONAL ROUTES
+    const personal = document.querySelector("#goToPersonal")
+    personal.addEventListener("click", (e) => {
+        window.location = "./personal/"
+    })
+    const shared = document.querySelector("#goToShared")
+    shared.addEventListener("click", (e) => {
+        window.location = "./shared/"
+    })
+
+    //GO TO SHARED ROUTES
+
+    //GET THE USERS CURRENT LOCATION
+    const location = document.querySelector("#location + span.placeholder")
+    const locinput = document.querySelector("#location")
+    function getLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition, showError)
+        }
+        else{
+            location.innerHTML = "The Browser Does not Support Geolocation"
+        }
     }
-    else{
-        window.location = "../login/"
+    function showPosition(position){
+        locinput.required = false
+        locinput.readOnly = true
+        location.innerHTML = `Lat: ${position.coords.latitude}. Long: ${position.coords.longtitude}`
     }
+    function showError(error){
+        if(error.PERMISSION_DENIED){
+            location.innerHTML = "The User Has Denied The Request For Geolocation"
+        }
+    }
+    getLocation()
 })()

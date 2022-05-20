@@ -3,6 +3,7 @@
     const logo = document.querySelector("#logo-nav")
     const hamburger = document.querySelector("#hamburger")
     const signIn = document.querySelector("#googleSignIn")
+    const body = document.body
 
     hamburger.addEventListener("click", () => {
         if(hamburger.ariaExpanded == "true"){
@@ -16,10 +17,30 @@
         window.location = "../../"
     })
 
-    //STRAVA AUTHORISATION
-    const request = function(){
-        window.location = "https://www.strava.com/oauth/authorize?client_id=84306&redirect_uri=http://127.0.0.1:5500/pages/dashboard/&response_type=code&scope=read_all&; path=/"
-    }
+    //Header showing when scrolling down
+    const scrollUp = "scroll-up"
+    const scrollDown = "scroll-down"
+    let lastScroll = 0
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset
+        if(currentScroll <= 0){
+            body.classList.remove(scrollUp)
+            return
+        }
 
-    
+        if(currentScroll > lastScroll && !body.classList.contains(scrollDown)){
+            // down
+            body.classList.remove(scrollUp)
+            body.classList.add(scrollDown)
+        }
+        else if(
+            currentScroll < lastScroll &&
+            body.classList.contains(scrollDown)
+        ){
+            //up
+            body.classList.remove(scrollDown)
+            body.classList.add(scrollUp)
+        }
+        lastScroll = currentScroll
+    })
 })()
