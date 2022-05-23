@@ -22,12 +22,14 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    color: var(--primary);
 }
 
 main{
     background-image: url("../assets/background-zigzag.svg");
     background-position: center;
     background-size: contain;
+    min-height: 66vh;
 }
 
 /* SCROLLBAR */
@@ -137,7 +139,7 @@ button.beige{
     background-color: var(--darkBeige);
     color: var(--primary);
     font-weight: 400;
-    box-shadow: 4px 0 4px 0 var(--blackshadow);
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
 }
 
     /* FLOATING LABEL */
@@ -178,9 +180,22 @@ label.floating input[type=text]:valid  + span.placeholder{
 }
 
 /* HEADER - NAVBAR */
+body.scroll-down header{
+    transform: translateY(-11rem);
+    transition: 500ms;
+}
+body.scroll-up header{
+    transform: none;
+    transition: 500ms;
+}
+
 header{
     box-shadow: 0 10px 10px 5px var(--blackshadow);
     padding: 1.6rem var(--clamp);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 nav > h1 > a{
@@ -288,6 +303,8 @@ footer{
     flex-direction: column;
     text-align: center;
     gap: 2.4rem;
+    padding: clamp(1rem, 8vw, 4rem);
+    padding-bottom: 0;
 }
 
 footer p.footer-title{
@@ -386,6 +403,13 @@ footer img.strava-logo{
 /* RESPONSIVE GENERAL STYLES */
 /* HEADER */
 @media screen and (min-width: 1280px) {
+    button.beige:hover{
+        font-weight: 500;
+    }
+    button.beige{
+        font-weight: 500;
+    }
+
     nav a{
         font-size: 2rem;
         line-height: 3rem;
@@ -438,6 +462,7 @@ footer img.strava-logo{
 
     footer p.footer-title{
         margin: 0 auto;
+        font-size: 2.4rem;
     }
 
     footer .socials{
@@ -463,6 +488,15 @@ footer img.strava-logo{
         width: 10rem;
         bottom: 0;
         left: 0;
+    }
+    footer button.beige{
+        transition: 250ms;
+    }
+    footer button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        font-weight: 500;
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
     }
 }
 
