@@ -176,7 +176,7 @@ onAuthStateChanged(auth, (user) => {
                         let element = document.createElement("div");
                         element.className = `route-card route-card-${counter}`
                         let routediv = 
-                        `   <div class="route"></div>
+                        `   <a href="../route?route_id=${route.id_str}&route_map=${route.summary_polyline}" class="route"></a>
                             <div class="titel">
                                 <label for="titel-route${counter}" class="away">Name of route: ${routename}</label>
                                 <input type="text" id="titel-route${counter}" class="titel-route" value="${routename}" readonly>
