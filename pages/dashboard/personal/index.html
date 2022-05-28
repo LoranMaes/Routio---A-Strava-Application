@@ -56,19 +56,21 @@
                 <div class="select-menu">
                     <label for="filter-option-sorts">Filter</label>
                     <select name="filter-option-sorts" id="filter-option-sorts">
-                        <option value="relevance">Relevance</option>
-                        <option value="length">Length</option>
-                        <option value="elevation">Elevation</option>
-                        <option value="date-created">Date created</option>
+                        <option value="date-created" selected>Date created</option>
+                        <option value="lengthasc">Length Short->Long</option>
+                        <option value="lengthdesc">Length Long->Short</option>
+                        <option value="elevationasc">Elevation Low->High</option>
+                        <option value="elevationdesc">Elevation High->Low</option>
                         <option value="height/km">Height / Kilometer</option>
-                        <option value="type">Type</option>
-                        <option value="alphabetically">Alphabetically</option>
+                        <option value="alphabeticallyaz">Alphabetically A->Z</option>
+                        <option value="alphabeticallyza">Alphabetically Z->A</option>
                         <option value="est-duration">Est. duration</option>
                     </select>
                 </div>
                 <div class="select-menu">
                     <label for="filter-option-types">Choose type:</label>
                     <select name="filter-option-types" id="filter-option-types">
+                        <option value="cycling-and-running">Cycling & Running</option>
                         <option value="cycling">Cycling</option>
                         <option value="running">Running</option>
                     </select>
@@ -82,12 +84,13 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="container route-cards" id="route-cards">
             <!-- HIER KOMEN VIA JAVASCRIPT DE KAARTJES ERIN -->
-            
+            <button class="beige" id="show-more-routes">Show more routes!</button>
         </div>
 
+        
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP6vENDbCcJqPkuF-ePvdzp_VQsSdb0Y8&callback=initMap&libraries=geometry&v=weekly" defer></script>
     </main>
 

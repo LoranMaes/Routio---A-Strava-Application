@@ -52,5 +52,4 @@ function initMap() {}
         lastScroll = currentScroll
     })
 
-    //FIXING A LOAD MORE BUTTON (ONLY LOAD 6 IN THE BEGINNING)
 })()
