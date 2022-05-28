@@ -184,8 +184,9 @@ body.scroll-down header{
     transform: translateY(-11rem);
     transition: 500ms;
 }
-body.scroll-up header{
-    transform: none;
+
+body.scroll-down header{
+    transform: translateY(-11rem);
     transition: 500ms;
 }
 
@@ -196,6 +197,7 @@ header{
     position: sticky;
     top: 0;
     z-index: 5;
+    transition: 350ms;
 }
 
 nav > h1 > a{
