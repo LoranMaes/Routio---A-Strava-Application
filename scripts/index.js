@@ -3,6 +3,7 @@
     const logo = document.querySelector("#logo-nav")
     const loginBtn = document.querySelector("#btnToRoutes")
     const hamburger = document.querySelector("#hamburger")
+    const reviews = document.querySelector("#goToReviews")    
     const body = document.body
 
     loginBtn.addEventListener("click", () => {
@@ -20,6 +21,11 @@
     logo.addEventListener("click", () => {
         window.location = "./"
     })
+
+    reviews.addEventListener("click", () => {
+        window.location = "./pages/reviews/"
+    })
+
 
     //Header showing when scrolling down
     const scrollUp = "scroll-up"

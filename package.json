@@ -8,7 +8,7 @@
     "./pages/dashboard/personal/index.html",
     "./pages/dashboard/shared/index.html",
     "./pages/login/index.html",
-    "./pages/leaflet-test/index.html",
+    "./pages/reviews/index.html",
     "./pages/dashboard/personal/route/index.html"
   ],
   "scripts": {

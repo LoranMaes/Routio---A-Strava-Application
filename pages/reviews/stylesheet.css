@@ -1,0 +1,282 @@
+:root{
+    --error: rgb(224, 30, 30);
+    --babyblue: rgb(11, 158, 226);
+}
+
+.container{
+    max-width: 1633px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3.6rem;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+.write-review-yourself{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.review-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    margin: 0 auto;
+}
+
+.review-cards .review-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--bg);
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 40rem;
+}
+
+h1{
+    text-align: center;
+}
+
+.review-cards h2{
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.review-cards h2+hr{
+    margin-bottom: 2.4rem;
+}
+
+.review-cards .review-card img{
+    width: 90%;
+    border-radius: 1rem;
+}
+
+#seeAllReviews{
+    margin: 0 auto;
+}
+
+.review-cards .scrollable-area{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    max-height: 66vh;
+    padding: 2.4rem;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.review-cards .button{
+    width: 100%;
+    display: flex;
+}
+
+/* FOR WRITING A REVIEW */
+#sendReviewForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    max-width: 55rem;
+    margin: 0 auto;
+}
+
+#image{
+    background: var(--bg);
+}
+
+#sendReviewForm .input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 75%;
+}
+
+#sendReviewForm label{
+    font-size: 1.6rem;
+    width: 95%;
+    white-space: nowrap;
+    position: relative;
+}
+
+#sendReviewForm label.required::after{
+    position: absolute;
+    content: "*";
+    color: var(--error);
+}
+
+#sendReviewForm input:not(input[type="radio"]),
+#sendReviewForm textarea{
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.6rem 2.4rem;
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    width: 100%;
+    resize: none;
+}
+
+.smileys:hover input:hover{
+    fill: var(--babyblue)
+}
+
+#sendReviewForm .smileys:hover input:not(:hover){
+    opacity: .5;
+}
+
+#sendReviewForm .smileys{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smileys input{
+    -webkit-appearance: none;
+	width: 5rem;
+	height: 5rem;
+	border: none;
+	cursor: pointer;
+	transition: border .2s ease;
+	filter: grayscale(100%);
+	margin: 0 5px;
+	transition: all 350ms ease;
+}
+
+.smileys input:nth-child(1){
+    background: url("../../assets/icons/not-okay-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(1):hover,
+.smileys input:nth-child(1):checked{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+.smileys input:nth-child(2){
+    background: url("../../assets/icons/okay-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(2):hover,
+.smileys input:nth-child(2):checked{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-140deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+.smileys input:nth-child(3){
+    background: url("../../assets/icons/satisfied-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(3):hover,
+.smileys input:nth-child(3):checked{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-240deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+
+.smileys input:nth-child(4){
+    background: url("../../assets/icons/very-satisfied-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(4):hover,
+.smileys input:nth-child(4):checked{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-270deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+#sendReviewForm p.errorMessage{
+    color: var(--error);
+    margin-top: .25rem;
+    margin-bottom: 2.4rem;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.write-review-yourself p.reviewSendMessage{
+    color: var(--babyblue);
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top: 3.6rem;
+    padding: 1.6rem;
+    line-height: 4.2rem;
+}
+
+@media screen and (min-width: 1280px) {
+    .container{
+        flex-direction: row-reverse;
+        padding: clamp(1rem, 8vw, 4rem);
+        justify-content: flex-end;
+    }
+
+    .write-review-yourself h1{
+        margin-top: 0;
+    }
+
+    .review-cards hr{
+        position: absolute;
+        z-index: -1;
+        visibility: hidden;
+    }
+
+    .write-review-yourself{
+        max-width: 45rem;
+        margin: 0;
+    }
+
+    .review-cards h2{
+        width: 100%;
+    }
+
+    .review-cards{
+        margin: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 105rem;
+    }
+
+    .review-cards .review-card{
+        width: 30rem;
+        height: fit-content;
+        margin: 0;
+    }
+
+    .review-cards .review-card p{
+        align-items: flex-start;
+        text-align: start;
+    }
+
+    .review-cards .review-card img{
+        width: 100%;
+    }
+
+    .write-review-yourself h1{
+        text-align: left;
+    }
+
+    #sendReviewForm{
+        align-items: flex-start;
+    }
+
+    button.beige{
+        transition: 250ms;
+    }
+
+    button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
+    }
+
+    #sendReviewForm .input{
+        align-items: flex-start;
+    }
+}
