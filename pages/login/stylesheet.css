@@ -7,6 +7,10 @@ main{
     padding: clamp(1rem, 8vw, 4rem)
 }
 
+header{
+    position: relative;
+}
+
 button.beige{
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;

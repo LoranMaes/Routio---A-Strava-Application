@@ -10,6 +10,7 @@
     loginBtn.addEventListener("click", () => {
         window.location = "./pages/login/"
     })
+    
     hamburger.ariaExpanded = "false"
     hamburger.addEventListener("click", () => {
         if(hamburger.ariaExpanded === "true"){
@@ -23,6 +24,7 @@
             hamburger.ariaExpanded = "true"
         }
     })
+
     logo.addEventListener("click", () => {
         window.location = "./"
     })

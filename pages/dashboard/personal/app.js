@@ -138,6 +138,7 @@ onAuthStateChanged(auth, (user) => {
             newData = data
             
             if(data){
+                authorize.innerHTML = "Synchronize your new routes!"
                 //GETTING THE FILTER OPTIONS                
                 const sort_cards = document.querySelector("#filter-option-sorts")
                 const filter_for_type = document.querySelector("#filter-option-types")
