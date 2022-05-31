@@ -17,33 +17,6 @@
         window.location = "../../"
     })
 
-    //Header showing when scrolling down
-    const scrollUp = "scroll-up"
-    const scrollDown = "scroll-down"
-    let lastScroll = 0
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset
-        if(currentScroll <= 0){
-            body.classList.remove(scrollUp)
-            return
-        }
-
-        if(currentScroll > lastScroll && !body.classList.contains(scrollDown)){
-            // down
-            body.classList.remove(scrollUp)
-            body.classList.add(scrollDown)
-        }
-        else if(
-            currentScroll < lastScroll &&
-            body.classList.contains(scrollDown)
-        ){
-            //up
-            body.classList.remove(scrollDown)
-            body.classList.add(scrollUp)
-        }
-        lastScroll = currentScroll
-    })
-
     //CHECK IF REVIEW FORM IS FILLED IN CORRECTLY
     const submitReview = document.querySelector("#submitReview")
     const firstnameError = document.querySelector("#firstname + p.errorMessage")
@@ -190,9 +163,9 @@
                 },
                 body: JSON.stringify(data)
             })
-            .then(() => {
+            .then((response) => {
+                console.log(response)
                 const reviewSent = document.querySelector(".write-review-yourself")
-
                 const message = document.createElement("p")
                 message.className = "reviewSendMessage"
                 message.innerHTML = "Thanks for your review! Ride on :)"
@@ -202,21 +175,5 @@
             })
             .catch(err => console.error(err))
         }
-    })
-
-    //Load reviews
-    window.addEventListener("DOMContentLoaded", () => {
-
-        const getAllReviews = async function(){
-            fetch("https://routioreviews.loranmaes.ikdoeict.be/reviews")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-
-                
-            })
-            .catch(err => console.error(err))
-        }
-        getAllReviews()
     })
 })()

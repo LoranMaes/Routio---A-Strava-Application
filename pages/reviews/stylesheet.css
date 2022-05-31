@@ -3,6 +3,17 @@
     --babyblue: rgb(11, 158, 226);
 }
 
+header{
+    position: relative;
+}
+
+.scrollable-area .noReviewsDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .container{
     max-width: 1633px;
     display: flex;
@@ -33,9 +44,9 @@
     box-shadow: 0 4px 4px 0 var(--blackshadow);
     padding: 1.6rem;
     border-radius: 1.2rem;
-    max-width: 90%;
     margin: 0 auto;
     overflow: hidden;
+    width: 30rem;
     max-width: 40rem;
 }
 
@@ -156,7 +167,8 @@ h1{
     background-size: cover;
 }
 .smileys input:nth-child(1):hover,
-.smileys input:nth-child(1):checked{
+.smileys input:nth-child(1):checked,
+.review-card .right-side img.scoreReview.not-okay{
     filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
     transition: all 350ms;
 }
@@ -166,7 +178,8 @@ h1{
     background-size: cover;
 }
 .smileys input:nth-child(2):hover,
-.smileys input:nth-child(2):checked{
+.smileys input:nth-child(2):checked,
+.review-card .right-side img.scoreReview.okay{
     filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-140deg) saturate(600%) contrast(0.8);
     transition: all 350ms;
 }
@@ -176,7 +189,8 @@ h1{
     background-size: cover;
 }
 .smileys input:nth-child(3):hover,
-.smileys input:nth-child(3):checked{
+.smileys input:nth-child(3):checked,
+.review-card .right-side img.scoreReview.satisfied{
     filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-240deg) saturate(600%) contrast(0.8);
     transition: all 350ms;
 }
@@ -187,7 +201,8 @@ h1{
     background-size: cover;
 }
 .smileys input:nth-child(4):hover,
-.smileys input:nth-child(4):checked{
+.smileys input:nth-child(4):checked,
+.review-card .right-side img.scoreReview.very-satisfied{
     filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-270deg) saturate(600%) contrast(0.8);
     transition: all 350ms;
 }
@@ -208,6 +223,17 @@ h1{
     margin-top: 3.6rem;
     padding: 1.6rem;
     line-height: 4.2rem;
+}
+
+.review-card .right-side p:nth-last-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.review-card .right-side img.scoreReview{
+    width: 4rem;
 }
 
 @media screen and (min-width: 1280px) {
@@ -247,6 +273,7 @@ h1{
         width: 30rem;
         height: fit-content;
         margin: 0;
+        align-items: flex-start;
     }
 
     .review-cards .review-card p{

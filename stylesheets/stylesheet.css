@@ -181,12 +181,12 @@ label.floating input[type=text]:valid  + span.placeholder{
 
 /* HEADER - NAVBAR */
 body.scroll-down header{
-    transform: translateY(-11rem);
+    transform: translateY(-12rem);
     transition: 500ms;
 }
 
-body.scroll-down header{
-    transform: translateY(-11rem);
+body.scroll-down header.down{
+    transform: translateY(0);
     transition: 500ms;
 }
 
@@ -245,6 +245,8 @@ nav ul.notMobile{
     justify-content: space-around;
     width: 3rem;
     height: 3rem;
+    background: none;
+    padding: 0;
 }
 
 #hamburger span{
