@@ -4,10 +4,18 @@
     --bg: #f9f9f9;
     --darkBeige: #E8D394;
     --gray: #AEAEAE;
-
+    --focus_blue: rgb(0, 88, 252);
     --blackshadow: rgba(0, 0, 0, .25);
     --gaptext: 3.6rem;
     --clamp: clamp(1rem, 8vw, 4rem);
+}
+
+/* FOCUS OUTLINE */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+    outline: dotted 2px var(--focus_blue);
 }
 
 /* HELPER */
@@ -111,6 +119,10 @@ hr{
 
 .gray{
     color: var(--gray);
+}
+
+.babyblue{
+    color: var(--babyblue)
 }
 
 .bold{

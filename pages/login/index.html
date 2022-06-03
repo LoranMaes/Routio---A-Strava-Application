@@ -28,18 +28,18 @@
                 <li><a href="../../index.html#whatIsRoutio">Routio</a></li>
             </ul>
 
-            <a class="ir" id="logo-nav"><h1>Routio</h1></a>
+            <a class="ir" id="logo-nav" tabindex="0"><h1>Routio</h1></a>
 
             <ul class="notMobile">
                 <li><a href="../../index.html#ourMission">Our mission</a></li>
                 <li><a href="../../index.html#howToUse">How to use</a></li>
             </ul>
 
-            <div id="hamburger" aria-expanded="false">
+            <button id="hamburger" aria-expanded="false" aria-label="hamburger button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             
             <ul class="mobile">
                 <li><a href="../../index.html#home">Home</a></li>
@@ -51,8 +51,12 @@
     </header>
 
     <main>
-        <button id="googleSignIn" class="beige">Sign in </button>
-        <p class="light">No account? <a href="" class="light register-link">Create one here!</a><br>Under construction</p>
+        <button id="googleSignIn" class="beige">Sign in with Google</button>
+        <div class="register">
+            <label for="accept_terms"><a href="./register/" class="light register-link">Terms of service</a></label>
+            <input type="checkbox" name="accept_terms" id="accept_terms">
+        </div>
+        <p class="errorMessage">Please accept our terms of service</p>
     </main>
 
     <footer>

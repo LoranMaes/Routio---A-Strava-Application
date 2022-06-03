@@ -377,7 +377,7 @@ onAuthStateChanged(auth, (user) => {
                                 typeRun.src = require("../../../assets/icons/icon-run.png")
                                 typeRun.className = "icon"
                                 typeRun.alt = "This route is a running route"
-        
+
                                 const routeTypesImg = [typeRide, typeRun]
             
                                 
@@ -397,12 +397,12 @@ onAuthStateChanged(auth, (user) => {
                                     <hr>
                                     <div class="stats">
                                         <div class="left">
-                                            <a href="" class="line download-route" id="${route.id_str}">
+                                            <button class="line download-route" id="${route.id_str}">
                                                 <p>Download gpx</p>
-                                            </a>
-                                            <a href="" class="line">
+                                            </button>
+                                            <button class="line">
                                                 <p>Share route</p>
-                                            </a>
+                                            </button>
                                             <div class="line">
                                                 <p>${type}, ${subtype}</p>
                                             </div>
@@ -415,12 +415,7 @@ onAuthStateChanged(auth, (user) => {
                                                 <p>${elevation} m</p>
                                             </div>
                                         </div>
-                                        <div class="review">
-                                            <img src="/icon-star-solid.5ec235aa.svg" alt="solid star" class="icon">
-                                            <img src="/icon-star-solid.5ec235aa.svg" alt="solid star" class="icon">
-                                            <img src="/icon-star-solid.5ec235aa.svg" alt="solid star" class="icon">
-                                            <img src="/icon-star-solid-half.39e743c9.svg" alt="solid star" class="icon">
-                                            <img src="/icon-star-open.6b996d0d.svg" alt="solid star" class="icon">
+                                        <div class="review_score">
                                         </div>
                                         </div>`
                                         
@@ -431,7 +426,7 @@ onAuthStateChanged(auth, (user) => {
                                 const typeChildNode = element.childNodes[7].childNodes[1].childNodes[5]
                                 const distChildNode = element.childNodes[7].childNodes[3].childNodes[1]
                                 const elevChildNode = element.childNodes[7].childNodes[3].childNodes[3]
-                                        
+                                const reviewChildNode = element.childNodes[7].childNodes[5]
                                 //APPEND THE IMAGES
                                 element.childNodes[3].childNodes[5].appendChild(pencil)
                                 downloadChildnode.appendChild(download)
@@ -472,6 +467,29 @@ onAuthStateChanged(auth, (user) => {
                                 initMap()
                                 showMoreBtn.style.visibility = "visible"
                                 showMoreBtn.style.zIndex = "1"
+
+                                //APPEND REVIEW
+                                
+                                if(route.review){
+                                    const score = route.review.score
+                                    for(let i = 0; i < score; i++){
+                                        const starClosedSVG = document.createElement("img")
+                                        starClosedSVG.src = require("../../../assets/icons/icon-star-solid.svg")
+                                        starClosedSVG.className = "icon"
+                                        starClosedSVG.alt = "This is an open star for the review"
+                                        reviewChildNode.appendChild(starClosedSVG)
+                                    }
+                                    for(let i = 0; i < 5 - score; i++){
+                                        const starOpenSVG = document.createElement("img")
+                                        starOpenSVG.src = require("../../../assets/icons/icon-star-open.svg")
+                                        starOpenSVG.className = "icon"
+                                        starOpenSVG.alt = "This is a closed star for the review"
+                                        reviewChildNode.appendChild(starOpenSVG)
+                                    }
+                                }
+                                else{
+                                    reviewChildNode.innerHTML = "No review yet"
+                                }
                                 counter++
                         })
                     }

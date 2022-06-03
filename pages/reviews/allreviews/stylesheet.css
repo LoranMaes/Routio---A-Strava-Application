@@ -1,11 +1,21 @@
-:root{
-    --error: rgb(224, 30, 30);
-    --babyblue: rgb(11, 158, 226);
-    --linear: linear-gradient(90deg, rgba(101,198,237,1) 0%, rgba(81,141,249,1) 38%, rgba(79,131,181,1) 100%);
-}
-
 header{
     position: relative;
+}
+
+h1{
+    padding-top: 2.4rem;
+    margin: 0;
+    text-align: center;
+}
+
+h1 + hr{
+    margin-top: 1.6rem;
+    margin-bottom: 2.4rem;
+}
+
+button.beige{
+    transition: 250ms;
+    margin: 0 auto;
 }
 
 .scrollable-area .noReviewsDiv{
@@ -60,10 +70,6 @@ header{
     width: 100%;
 }
 
-h1{
-    text-align: center;
-}
-
 .review-cards h2{
     margin-bottom: 0;
     margin-top: 0;
@@ -108,145 +114,20 @@ h1{
     display: flex;
 }
 
-/* FOR WRITING A REVIEW */
-#sendReviewForm{
+
+.filter-options{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 2.4rem;
-    max-width: 55rem;
-    margin: 0 auto;
 }
 
-#image{
-    background: var(--bg);
-}
-
-#sendReviewForm .input{
+.filter-options .filter-option{
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
-    width: 75%;
-}
-
-#sendReviewForm label{
     font-size: 1.6rem;
-    width: 95%;
-    white-space: nowrap;
-    position: relative;
-}
-
-#sendReviewForm label.required::after{
-    position: absolute;
-    content: "*";
-    color: var(--error);
-}
-
-#sendReviewForm input:not(input[type="radio"]),
-#sendReviewForm textarea{
-    font-size: 1.6rem;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.6rem 2.4rem;
-    box-shadow: 0 4px 4px 0 var(--blackshadow);
-    width: 100%;
-    resize: none;
-}
-
-.smileys:hover input:hover{
-    fill: var(--babyblue)
-}
-
-#toAllReviews{
-    margin: 0 auto;
-}
-
-#sendReviewForm .smileys:hover input:not(:hover){
-    opacity: .5;
-}
-
-#sendReviewForm .smileys{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.smileys input{
-    -webkit-appearance: none;
-	width: 5rem;
-	height: 5rem;
-	border: none;
-	cursor: pointer;
-	transition: border .2s ease;
-	filter: grayscale(100%);
-	margin: 0 5px;
-	transition: all 350ms ease;
-}
-
-.smileys input:nth-child(1){
-    background: url("../../assets/icons/not-okay-smiley.svg");
-    background-size: cover;
-}
-.smileys input:nth-child(1):hover,
-.smileys input:nth-child(1):checked,
-.review-card .right-side img.scoreReview.not-okay{
-    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
-    transition: all 350ms;
-}
-
-.smileys input:nth-child(2){
-    background: url("../../assets/icons/okay-smiley.svg");
-    background-size: cover;
-}
-.smileys input:nth-child(2):hover,
-.smileys input:nth-child(2):checked,
-.review-card .right-side img.scoreReview.okay{
-    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-140deg) saturate(600%) contrast(0.8);
-    transition: all 350ms;
-}
-
-.smileys input:nth-child(3){
-    background: url("../../assets/icons/satisfied-smiley.svg");
-    background-size: cover;
-}
-.smileys input:nth-child(3):hover,
-.smileys input:nth-child(3):checked,
-.review-card .right-side img.scoreReview.satisfied{
-    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-240deg) saturate(600%) contrast(0.8);
-    transition: all 350ms;
-}
-
-
-.smileys input:nth-child(4){
-    background: url("../../assets/icons/very-satisfied-smiley.svg");
-    background-size: cover;
-}
-.smileys input:nth-child(4):hover,
-.smileys input:nth-child(4):checked,
-.review-card .right-side img.scoreReview.very-satisfied{
-    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-270deg) saturate(600%) contrast(0.8);
-    transition: all 350ms;
-}
-
-#sendReviewForm p.errorMessage{
-    color: var(--error);
-    margin-top: .25rem;
-    margin-bottom: 2.4rem;
-    visibility: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-.write-review-yourself p.reviewSendMessage{
-    color: var(--babyblue);
-    font-size: 2.8rem;
-    font-weight: 600;
-    margin-top: 3.6rem;
-    padding: 1.6rem;
-    line-height: 4.2rem;
-    position: relative;
-}
+} 
 
 .review-card .right-side p:nth-last-child(1){
     display: flex;
@@ -270,6 +151,24 @@ h1{
     gap: 1.6rem;
 }
 
+.review-card .right-side img.scoreReview.not-okay{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+.review-card .right-side img.scoreReview.okay{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-140deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+.review-card .right-side img.scoreReview.satisfied{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-240deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+.review-card .right-side img.scoreReview.very-satisfied{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-270deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
 @media screen and (min-width: 850px) {
     .review-cards .scrollable-area{
         flex-wrap: wrap;
@@ -277,19 +176,25 @@ h1{
         overflow-x: unset;
         background-size: 200%;
         border-radius: 2.4rem;
-        justify-content: center;
     }
     .review-cards .scrollable-area::-webkit-scrollbar{
-        display: none;
+        display: block;
+    }
+    .review-cards .scrollable-area::-webkit-scrollbar-thumb{
+        border-radius: 5rem;
+    }
+    .review-cards .scrollable-area::-webkit-scrollbar-track{
+        border-radius: 5rem;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .filter-options{
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: flex-end;
-        width: 95%;
+        width: 100%;
+        padding: 2.4rem;
     }
 
     select.button{
@@ -299,7 +204,7 @@ h1{
     .container{
         flex-direction: row-reverse;
         padding: clamp(1rem, 8vw, 4rem);
-        justify-content: flex-end;
+        justify-content: center;
     }
 
     .write-review-yourself h1{
@@ -314,13 +219,6 @@ h1{
         visibility: hidden;
     }
 
-    .write-review-yourself{
-        max-width: 45rem;
-        margin: 0;
-        min-width: 31rem;
-        align-self: center;
-    }
-
     .review-cards h2{
         width: 100%;
     }
@@ -331,6 +229,7 @@ h1{
         flex-wrap: wrap;
         max-width: 105rem;
         height: 100%;
+        justify-content: center;
     }
 
     .review-cards .review-card{
@@ -349,12 +248,10 @@ h1{
         width: 100%;
     }
 
-    .write-review-yourself h1{
-        text-align: left;
-    }
-
-    #sendReviewForm{
-        align-items: flex-start;
+    #backToReview{
+        margin: 0;
+        width: fit-content;
+        justify-self: flex-start;
     }
 
     button.beige{
@@ -365,32 +262,5 @@ h1{
         background-color: rgba(255, 255, 255, 0.15);
         box-shadow: 0 0 25px 10px var(--darkBeige);
         transition: 250ms;
-    }
-
-    #sendReviewForm .input{
-        align-items: flex-start;
-    }
-
-    .write-review-yourself p.reviewSendMessage::after{
-        position: absolute;
-        content: "";
-        background: var(--linear);
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        height: 5px;
-        border-radius: 5rem;
-        animation: thanksAnimation 5s forwards;
-    }
-
-    @keyframes thanksAnimation {
-        0%{
-            width: 0;
-            background-size: 500%;
-        }
-        100%{
-            width: 100%;
-            background-size: 100%;
-        }
     }
 }

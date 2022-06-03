@@ -8,7 +8,9 @@
     "./pages/dashboard/personal/index.html",
     "./pages/dashboard/shared/index.html",
     "./pages/login/index.html",
+    "./pages/login/register/index.html",
     "./pages/reviews/index.html",
+    "./pages/reviews/allreviews/index.html",
     "./pages/dashboard/personal/route/index.html"
   ],
   "scripts": {

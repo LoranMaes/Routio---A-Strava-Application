@@ -2,19 +2,29 @@
     "use strict"
     const logo = document.querySelector("#logo-nav")
     const hamburger = document.querySelector("#hamburger")
-    const reviews = document.querySelector("#goToReviews")    
-    const body = document.body
+    const reviews = document.querySelector("#toAllReviews")    
+    const header = document.querySelector("header")
 
+    hamburger.ariaExpanded = "false"
     hamburger.addEventListener("click", () => {
-        if(hamburger.ariaExpanded == "true"){
+        if(hamburger.ariaExpanded === "true"){
             hamburger.ariaExpanded = "false"
+            header.classList.remove("down")
+            header.classList.add("up")
         }
         else{
+            header.classList.remove("up")
+            header.classList.add("down")
             hamburger.ariaExpanded = "true"
         }
     })
+    
     logo.addEventListener("click", () => {
         window.location = "../../"
+    })
+
+    reviews.addEventListener("click", () => {
+        window.location = "./allreviews/"
     })
 
     //CHECK IF REVIEW FORM IS FILLED IN CORRECTLY
@@ -97,7 +107,12 @@
 
         if(review.value === ""){
             showError(array[2])
+            array[2].innerHTML = "Please write a review"
             magSturen = false
+        }
+        if(review.value.length > 300){
+            showError(array[2])
+            array[2].innerHTML = "The maximum characters is 300"
         }
 
         //CHECK IF FILE TYPE IS SUPPORTED
@@ -156,7 +171,9 @@
 
             //SEND HERE POST REQUEST
             console.log("sending post request")
-            fetch("https://routioreviews.loranmaes.ikdoeict.be/reviews", {
+
+            //https://routioreviews.loranmaes.ikdoeict.be/reviews
+            fetch("http://127.0.0.1:3000/reviews", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"

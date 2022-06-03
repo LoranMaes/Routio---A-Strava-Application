@@ -30,28 +30,28 @@ window.addEventListener("DOMContentLoaded", () => {
                     smileyImg.alt = "Smiley is"
                     switch(parseInt(review.score)){
                         case 0: {
-                            smileyImg.src = require("../../assets/icons/not-okay-smiley.svg")
+                            smileyImg.src = require("../../../assets/icons/not-okay-smiley.svg")
                             smileyImg.className = "scoreReview not-okay"
                             break;
                         }
                         case 1: {
-                            smileyImg.src = require("../../assets/icons/okay-smiley.svg")
+                            smileyImg.src = require("../../../assets/icons/okay-smiley.svg")
                             smileyImg.className = "scoreReview okay"
                             break;
                         }
                         case 2: {
-                            smileyImg.src = require("../../assets/icons/satisfied-smiley.svg")
+                            smileyImg.src = require("../../../assets/icons/satisfied-smiley.svg")
                             smileyImg.className = "scoreReview satisfied"
                             break;
                         }
                         case 3: {
-                            smileyImg.src = require("../../assets/icons/very-satisfied-smiley.svg")
+                            smileyImg.src = require("../../../assets/icons/very-satisfied-smiley.svg")
                             smileyImg.className = "scoreReview very-satisfied"
                             break;
                         }
                         default: {
                             smileyImg.className = "scoreReview not-okay"
-                            smileyImg.src = require("../../assets/icons/not-okay-smiley.svg")
+                            smileyImg.src = require("../../../assets/icons/not-okay-smiley.svg")
                         }
                     }
     
@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error(err))
     }
-    getAllReviews("")
+    getAllReviews("all_sd_da")
 
     const sort_score = document.querySelector("#sort_score")
     const sort_date = document.querySelector("#sort_date")
@@ -84,63 +84,63 @@ window.addEventListener("DOMContentLoaded", () => {
     sort_score.addEventListener("change", () => {
         reviewcards.innerHTML = ""
         if(sort_score.value === "score_asc" && sort_date.value === "date_asc"){
-            getAllReviews("sa_da")
+            getAllReviews("all_sa_da")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "date_desc"){
-            getAllReviews("sd_dd")
+            getAllReviews("all_sd_dd")
         }
         else if(sort_score.value === "score_asc" && sort_date.value === "date_desc"){
-            getAllReviews("sa_dd")
+            getAllReviews("all_sa_dd")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "date_asc"){
-            getAllReviews("sd_da")
+            getAllReviews("all_sd_da")
         }
 
         else if(sort_score.value === "select_option" && sort_date.value === "date_asc"){
-            getAllReviews("so_da")
+            getAllReviews("all_so_da")
         }
         else if(sort_score.value === "select_option" && sort_date.value === "date_desc"){
-            getAllReviews("so_dd")
+            getAllReviews("all_so_dd")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "select_option"){
-            getAllReviews("sd_so")
+            getAllReviews("all_sd_so")
         }
         else if(sort_score.value === "score_asc" && sort_date.value === "select_option"){
-            getAllReviews("sa_so")
+            getAllReviews("all_sa_so")
         }
         else if(sort_score.value === "select_option" && sort_date.value === "select_option"){
-            getAllReviews("")
+            getAllReviews("all")
         }
     })
     sort_date.addEventListener("change", () => {
         reviewcards.innerHTML = ""
         if(sort_score.value === "score_asc" && sort_date.value === "date_asc"){
-            getAllReviews("sa_da")
+            getAllReviews("all_sa_da")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "date_desc"){
-            getAllReviews("sd_dd")
+            getAllReviews("all_sd_dd")
         }
         else if(sort_score.value === "score_asc" && sort_date.value === "date_desc"){
-            getAllReviews("sa_dd")
+            getAllReviews("all_sa_dd")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "date_asc"){
-            getAllReviews("sd_da")
+            getAllReviews("all_sd_da")
         }
 
         else if(sort_score.value === "select_option" && sort_date.value === "date_asc"){
-            getAllReviews("so_da")
+            getAllReviews("all_so_da")
         }
         else if(sort_score.value === "select_option" && sort_date.value === "date_desc"){
-            getAllReviews("so_dd")
+            getAllReviews("all_so_dd")
         }
         else if(sort_score.value === "score_desc" && sort_date.value === "select_option"){
-            getAllReviews("sd_so")
+            getAllReviews("all_sd_so")
         }
         else if(sort_score.value === "score_asc" && sort_date.value === "select_option"){
-            getAllReviews("sa_so")
+            getAllReviews("all_sa_so")
         }
         else if(sort_score.value === "select_option" && sort_date.value === "select_option"){
-            getAllReviews("")
+            getAllReviews("all")
         }
     })
 })

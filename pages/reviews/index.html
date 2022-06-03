@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../assets/app/favicon.png">
 
     <link rel="stylesheet" href="../../stylesheets/common.css">
     <link rel="stylesheet" href="../../stylesheets/normalize.css">
@@ -27,18 +28,18 @@
                 <li><a href="../../index.html#whatIsRoutio">Routio</a></li>
             </ul>
 
-            <a class="ir" id="logo-nav"><h1>Routio</h1></a>
+            <a class="ir" id="logo-nav" tabindex="0"><h1>Routio</h1></a>
 
             <ul class="notMobile">
                 <li><a href="../../index.html#ourMission">Our mission</a></li>
                 <li><a href="../../index.html#howToUse">How to use</a></li>
             </ul>
 
-            <div id="hamburger" aria-expanded="false">
+            <button id="hamburger" aria-expanded="false" aria-label="hamburger button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             
             <ul class="mobile">
                 <li><a href="../../index.html#home">Home</a></li>
@@ -55,7 +56,25 @@
                 <hr>
                 <h2 class="bold">Reviews from other users</h2>
                 <hr>
-                <div class="scrollable-area">
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <label for="sort_score">Sort by score</label>
+                        <select name="sort_score" id="sort_score" class="button">
+                            <option value="select_option">Select an option</option>
+                            <option value="score_asc">Score ASC</option>
+                            <option value="score_desc">Score DESC</option>
+                        </select>
+                    </div>
+                    <filter class="filter-option">
+                        <label for="sort_date">Sort by date</label>
+                        <select name="sort_date" id="sort_date" class="button">
+                            <option value="select_option">Select an option</option>
+                            <option value="date_asc">Date ASC</option>
+                            <option value="date_desc">Date DESC</option>
+                        </select>
+                    </filter>
+                </div>
+                <div class="scrollable-area" tabindex="0">
                     <!-- FOR REVIEW CARD WITH IMAGE
                     <div class="review-card">
                         <div class="left-side">
@@ -70,10 +89,11 @@
                     </div>
                     -->
                 </div>
+                <button class="beige" id="toAllReviews">See all reviews!</button>
             </div>
             <div class="write-review-yourself">
                 <h1 class="title bold">Write here your review about Routio</h1>
-                <form action="" id="sendReviewForm">
+                <form action="" id="sendReviewForm" novalidate>
                     <div class="input">
                         <label for="firstname" class="required">First name</label>
                         <input type="text" name="firstname" id="firstname">
@@ -97,10 +117,10 @@
                     <div class="input">
                         <label for="emoticon" class="required">How satisfied are you with Routio?</label>
                         <div class="smileys" id="smileys">
-                            <input type="radio" name="emoticon" value="not-okay" class="not-okay" id="smiley-not-okay">
-                            <input type="radio" name="emoticon" value="okay" class="okay" id="smiley-okay">
-                            <input type="radio" name="emoticon" value="satisfied" class="satisfied" id="smiley-satisfied">
-                            <input type="radio" name="emoticon" value="very-satisfied" class="very-satisfied" id="smiley-very-satisfied">
+                            <input type="radio" name="emoticon" value="not-okay" class="not-okay" id="smiley-not-okay" aria-label="Site is not okay">
+                            <input type="radio" name="emoticon" value="okay" class="okay" id="smiley-okay" aria-label="Site is okay">
+                            <input type="radio" name="emoticon" value="satisfied" class="satisfied" id="smiley-satisfied" aria-label="Satisfied with the site">
+                            <input type="radio" name="emoticon" value="very-satisfied" class="very-satisfied" id="smiley-very-satisfied" aria-label="Very satisfied with the site">
                         </div>
                         <p class="errorMessage">Please click on a smiley</p>
                     </div>
