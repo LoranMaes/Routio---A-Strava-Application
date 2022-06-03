@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">.
+    <link rel="icon" type="image/x-icon" href="../../../../assets/app/favicon.png">
 
     <link rel="stylesheet" href="../../../../stylesheets/common.css">
     <link rel="stylesheet" href="../../../../stylesheets/normalize.css">
@@ -24,27 +25,27 @@
         <nav>
             <ul class="notMobile">
                 <li><a href="../../../../index.html#home">Home</a></li>
-                <li><a href="../../../../index.html#whatIsRoutio">Routio</a></li>
+                <li><a href="../../personal/index.html">Personal routes</a></li>
             </ul>
 
-            <a class="ir" id="logo-nav"><h1>Routio</h1></a>
+            <a class="ir" id="logo-nav" tabindex="0"><h1>Routio</h1></a>
 
             <ul class="notMobile">
-                <li><a href="../../../../index.html#ourMission">Our mission</a></li>
-                <li><a href="../../../../index.html#howToUse">How to use</a></li>
+                <li><a href="../../shared/index.html">Shared routes</a></li>
+                <li><a href="../../index.html">Dashboard</a></li>
             </ul>
 
-            <div id="hamburger" aria-expanded="false">
+            <button id="hamburger" aria-expanded="false" aria-label="hamburger button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             
             <ul class="mobile">
                 <li><a href="../../../../index.html#home">Home</a></li>
-                <li><a href="../../../../index.html#whatIsRoutio">Routio</a></li>
-                <li><a href="../../../../index.html#ourMission">Our mission</a></li>
-                <li><a href="../../../../index.html#howToUse">How to use</a></li>
+                <li><a href="../../personal/index.html">Personal routes</a></li>
+                <li><a href="../../shared/index.html">Shared routes</a></li>
+                <li><a href="../../index.html">Dashboard</a></li>
             </ul>
         </nav>
     </header>
@@ -88,38 +89,39 @@
                 </div>
     
                 <div class="functionalities">
-                    <a href="" class="line download-route">Download GPX</a>
-                    <a href="" class="line" id="share-route">Share route</a>
+                    <button class="line download-route">Download GPX</button>
+                    <button class="line" id="share-route">Share route</button>
                     <!-- LATER: PUBLIC ROUTE -->
                 </div>
     
                 <div class="review-section">
                     <form action="" id="review-form">
                         <label for="review-input">Type your comments here</label>
-                        <textarea name="review-input" id="review-input" cols="30" rows="10"></textarea>
+                        <textarea name="review-input" id="review-input" cols="30" rows="10" placeholder="This is one of the most beautiful routes I have ever ridden!"></textarea>
                         <div class="stars">
                             <div class="star">
-                                <button class="star-open" id="o1"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
-                                <button class="star-closed" id="c1"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
+                                <button class="star-open" id="o1" aria-label="star-open-first"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
+                                <button class="star-closed" id="c1" aria-label="star-closed-first"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
                             </div>
                             <div class="star">
-                                <button class="star-open" id="o2"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
-                                <button class="star-closed" id="c2"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
+                                <button class="star-open" id="o2" aria-label="star-open-second"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
+                                <button class="star-closed" id="c2" aria-label="star-closed-second"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
                             </div>
                             <div class="star">
-                                <button class="star-open" id="o3"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
-                                <button class="star-closed" id="c3"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
+                                <button class="star-open" id="o3" aria-label="star-open-third"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
+                                <button class="star-closed" id="c3" aria-label="star-closed-third"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
                             </div>
                             <div class="star">
-                                <button class="star-open" id="o4"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
-                                <button class="star-closed" id="c4"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
+                                <button class="star-open" id="o4" aria-label="star-open-fourth"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
+                                <button class="star-closed" id="c4" aria-label="star-closed-fourth"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
                             </div>
                             <div class="star">
-                                <button class="star-open" id="o5"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
-                                <button class="star-closed" id="c5"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
+                                <button class="star-open" id="o5" aria-label="star-open-fifth"><img src="../../../../assets/icons/icon-star-open.svg" alt=""></button>
+                                <button class="star-closed" id="c5" aria-label="star-closed-fifth"><img src="../../../../assets/icons/icon-star-solid.svg" alt=""></button>
                             </div>
                         </div>
                         <button class="beige" id="submit-review">Submit review</button>
+                        <p class="errorMessage">Please select the stars and write a review!</p>
                     </form>
                 </div>
     

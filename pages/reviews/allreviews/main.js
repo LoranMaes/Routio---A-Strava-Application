@@ -2,6 +2,7 @@
     "use strict"
     const logo = document.querySelector("#logo-nav")
     const hamburger = document.querySelector("#hamburger")
+    const reviews = document.querySelector("#backToReview")    
     const header = document.querySelector("header")
 
     hamburger.ariaExpanded = "false"
@@ -17,7 +18,14 @@
             hamburger.ariaExpanded = "true"
         }
     })
+    
     logo.addEventListener("click", () => {
         window.location = "../../"
-    })    
+    })
+
+    reviews.addEventListener("click", () => {
+        window.location = "../"
+    })
+
+    
 })()

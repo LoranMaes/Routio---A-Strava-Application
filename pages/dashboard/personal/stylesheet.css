@@ -223,10 +223,17 @@ main{
     gap: 1.6rem;
 }
 
-.route-card .stats .review{
+.route-card .stats .review_score{
     display: flex;
     justify-content: center;
+    gap: .5rem;
     width: 100%;
+    font-size: 1.4rem;
+}
+
+.route-card .stats .review_score img{
+    width: 2rem;
+    height: 2rem;
 }
 
 .route-card .stats .left,
@@ -244,7 +251,7 @@ main{
     gap: 1rem;
 }
 
-.route-card .stats a.line{
+.route-card .stats button.line{
     background-image: var(--cardLink4);
     font-weight: 500;
     font-size: 1.4rem;
@@ -255,7 +262,7 @@ main{
     transition: 500ms;
 }
 
-.route-card .stats a.line:hover{
+.route-card .stats button.line:hover{
     background-position: 100% 0;
     box-shadow: 0 0 12px 3px #e65c00;
     transition: 500ms;

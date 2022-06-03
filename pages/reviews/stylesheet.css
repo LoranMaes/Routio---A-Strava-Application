@@ -1,0 +1,396 @@
+:root{
+    --error: rgb(224, 30, 30);
+    --babyblue: rgb(11, 158, 226);
+    --linear: linear-gradient(90deg, rgba(101,198,237,1) 0%, rgba(81,141,249,1) 38%, rgba(79,131,181,1) 100%);
+}
+
+header{
+    position: relative;
+}
+
+.scrollable-area .noReviewsDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container{
+    max-width: 1633px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3.6rem;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+.write-review-yourself{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.review-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.review-cards .review-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--bg);
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 30rem;
+    min-width: 30rem;
+    max-width: 40rem;
+    scroll-snap-align: center;
+}
+
+.review-card div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+.review-cards h2{
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.review-cards h2+hr{
+    margin-bottom: 2.4rem;
+}
+
+.review-cards .review-card img{
+    width: 90%;
+    border-radius: 1rem;
+}
+
+#seeAllReviews{
+    margin: 0 auto;
+}
+
+.review-cards .scrollable-area{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2.4rem;
+    max-height: 66vh;
+    padding: 2.4rem;
+    align-items: center;
+    overflow-x: auto;
+
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+}
+
+.review-cards .scrollable-area::-webkit-scrollbar{
+    display: none
+}
+
+.review-cards .button{
+    width: 100%;
+    display: flex;
+}
+
+/* FOR WRITING A REVIEW */
+#sendReviewForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    max-width: 55rem;
+    margin: 0 auto;
+}
+
+#image{
+    background: var(--bg);
+}
+
+#sendReviewForm .input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 75%;
+}
+
+#sendReviewForm label{
+    font-size: 1.6rem;
+    width: 95%;
+    white-space: nowrap;
+    position: relative;
+}
+
+#sendReviewForm label.required::after{
+    position: absolute;
+    content: "*";
+    color: var(--error);
+}
+
+#sendReviewForm input:not(input[type="radio"]),
+#sendReviewForm textarea{
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.6rem 2.4rem;
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    width: 100%;
+    resize: none;
+}
+
+.smileys:hover input:hover{
+    fill: var(--babyblue)
+}
+
+#toAllReviews{
+    margin: 0 auto;
+}
+
+#sendReviewForm .smileys:hover input:not(:hover){
+    opacity: .5;
+}
+
+#sendReviewForm .smileys{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smileys input{
+    -webkit-appearance: none;
+	width: 5rem;
+	height: 5rem;
+	border: none;
+	cursor: pointer;
+	transition: border .2s ease;
+	filter: grayscale(100%);
+	margin: 0 5px;
+	transition: all 350ms ease;
+}
+
+.smileys input:nth-child(1){
+    background: url("../../assets/icons/not-okay-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(1):hover,
+.smileys input:nth-child(1):checked,
+.review-card .right-side img.scoreReview.not-okay{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+.smileys input:nth-child(2){
+    background: url("../../assets/icons/okay-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(2):hover,
+.smileys input:nth-child(2):checked,
+.review-card .right-side img.scoreReview.okay{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-140deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+.smileys input:nth-child(3){
+    background: url("../../assets/icons/satisfied-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(3):hover,
+.smileys input:nth-child(3):checked,
+.review-card .right-side img.scoreReview.satisfied{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-240deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+
+.smileys input:nth-child(4){
+    background: url("../../assets/icons/very-satisfied-smiley.svg");
+    background-size: cover;
+}
+.smileys input:nth-child(4):hover,
+.smileys input:nth-child(4):checked,
+.review-card .right-side img.scoreReview.very-satisfied{
+    filter: invert(100%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-270deg) saturate(600%) contrast(0.8);
+    transition: all 350ms;
+}
+
+#sendReviewForm p.errorMessage{
+    color: var(--error);
+    margin-top: .25rem;
+    margin-bottom: 2.4rem;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.write-review-yourself p.reviewSendMessage{
+    color: var(--babyblue);
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top: 3.6rem;
+    padding: 1.6rem;
+    line-height: 4.2rem;
+    position: relative;
+}
+
+.review-card .right-side p:nth-last-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.review-card .right-side img.scoreReview{
+    width: 4rem;
+}
+
+.review-card .right-side{
+    width: 100%;
+}
+
+.filter-options{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    gap: 1.6rem;
+}
+
+@media screen and (min-width: 850px) {
+    .review-cards .scrollable-area{
+        flex-wrap: wrap;
+        overflow-y: auto;
+        overflow-x: unset;
+        background-size: 200%;
+        border-radius: 2.4rem;
+        justify-content: center;
+    }
+    .review-cards .scrollable-area::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .filter-options{
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 95%;
+    }
+
+    select.button{
+        padding: .25rem .5rem
+    }
+    
+    .container{
+        flex-direction: row-reverse;
+        padding: clamp(1rem, 8vw, 4rem);
+        justify-content: flex-end;
+    }
+
+    .write-review-yourself h1{
+        margin-top: 0;
+    }
+    .review-card .right-side p:nth-last-child(1){
+        justify-content: flex-start;
+    }
+    .review-cards hr{
+        position: absolute;
+        z-index: -1;
+        visibility: hidden;
+    }
+
+    .write-review-yourself{
+        max-width: 45rem;
+        margin: 0;
+        min-width: 31rem;
+        align-self: center;
+    }
+
+    .review-cards h2{
+        width: 100%;
+    }
+
+    .review-cards{
+        margin: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 105rem;
+        height: 100%;
+    }
+
+    .review-cards .review-card{
+        width: 30rem;
+        height: fit-content;
+        margin: 0;
+        align-items: flex-start;
+    }
+
+    .review-cards .review-card p{
+        align-items: flex-start;
+        text-align: start;
+    }
+
+    .review-cards .review-card img{
+        width: 100%;
+    }
+
+    .write-review-yourself h1{
+        text-align: left;
+    }
+
+    #sendReviewForm{
+        align-items: flex-start;
+    }
+
+    button.beige{
+        transition: 250ms;
+    }
+
+    button.beige:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 25px 10px var(--darkBeige);
+        transition: 250ms;
+    }
+
+    #sendReviewForm .input{
+        align-items: flex-start;
+    }
+
+    .write-review-yourself p.reviewSendMessage::after{
+        position: absolute;
+        content: "";
+        background: var(--linear);
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        border-radius: 5rem;
+        animation: thanksAnimation 5s forwards;
+    }
+
+    @keyframes thanksAnimation {
+        0%{
+            width: 0;
+            background-size: 500%;
+        }
+        100%{
+            width: 100%;
+            background-size: 100%;
+        }
+    }
+}

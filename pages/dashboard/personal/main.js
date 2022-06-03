@@ -6,13 +6,18 @@ function initMap() {}
     const hamburger = document.querySelector("#hamburger")
     const personal = document.querySelector("#backToPersonal") 
     const body = document.body
+    const header = document.querySelector("header")
 
     hamburger.ariaExpanded = "false"
     hamburger.addEventListener("click", () => {
-        if(hamburger.ariaExpanded == "true"){
+        if(hamburger.ariaExpanded === "true"){
             hamburger.ariaExpanded = "false"
+            header.classList.remove("down")
+            header.classList.add("up")
         }
         else{
+            header.classList.remove("up")
+            header.classList.add("down")
             hamburger.ariaExpanded = "true"
         }
     })
@@ -36,7 +41,7 @@ function initMap() {}
             return
         }
 
-        if(currentScroll > lastScroll && !body.classList.contains(scrollDown)){
+        if(currentScroll > lastScroll && !body.classList.contains(scrollDown) && currentScroll > 100){
             // down
             body.classList.remove(scrollUp)
             body.classList.add(scrollDown)

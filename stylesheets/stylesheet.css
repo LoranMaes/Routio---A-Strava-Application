@@ -4,10 +4,18 @@
     --bg: #f9f9f9;
     --darkBeige: #E8D394;
     --gray: #AEAEAE;
-
+    --focus_blue: rgb(0, 88, 252);
     --blackshadow: rgba(0, 0, 0, .25);
     --gaptext: 3.6rem;
     --clamp: clamp(1rem, 8vw, 4rem);
+}
+
+/* FOCUS OUTLINE */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+    outline: dotted 2px var(--focus_blue);
 }
 
 /* HELPER */
@@ -113,6 +121,10 @@ hr{
     color: var(--gray);
 }
 
+.babyblue{
+    color: var(--babyblue)
+}
+
 .bold{
     font-weight: 600;
 }
@@ -181,12 +193,12 @@ label.floating input[type=text]:valid  + span.placeholder{
 
 /* HEADER - NAVBAR */
 body.scroll-down header{
-    transform: translateY(-11rem);
+    transform: translateY(-12rem);
     transition: 500ms;
 }
 
-body.scroll-down header{
-    transform: translateY(-11rem);
+body.scroll-down header.down{
+    transform: translateY(0);
     transition: 500ms;
 }
 
@@ -245,6 +257,8 @@ nav ul.notMobile{
     justify-content: space-around;
     width: 3rem;
     height: 3rem;
+    background: none;
+    padding: 0;
 }
 
 #hamburger span{

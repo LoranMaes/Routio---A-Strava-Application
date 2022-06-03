@@ -58,7 +58,7 @@ onAuthStateChanged(auth, (user) => {
           }
         })
 
-        if(counter != 1){
+        if(counter !== 1){
           console.log("hi")
           writeUserData(uid, user.displayName, user.email, user.photoURL)
         }

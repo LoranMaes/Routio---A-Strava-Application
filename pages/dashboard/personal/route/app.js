@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, get, child, update } from "firebase/database";
+import { getDatabase, ref, get, child, update, push } from "firebase/database";
 import { fill } from "lodash-es";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,8 +26,140 @@ const auth = getAuth();
 const database = getDatabase(app);
 const dbRef = ref(database);
 
+
+const starsClosed = document.querySelectorAll(".review-section .star-closed")
+const starsOpen = document.querySelectorAll(".review-section .star-open")
+const textReview = document.querySelector("#review-input")
+const submitReview = document.querySelector("#submit-review")
+const errorSubmit = document.querySelector("#submit-review + p.errorMessage")
+
+//ALL THE STARS
+//EVERY STAR TO GIVE AS A PARAMETER
+const o1 = document.querySelector("#o1")
+const o2 = document.querySelector("#o2")
+const o3 = document.querySelector("#o3")
+const o4 = document.querySelector("#o4")
+const o5 = document.querySelector("#o5")
+
+const c1 = document.querySelector("#c1")
+const c2 = document.querySelector("#c2")
+const c3 = document.querySelector("#c3")
+const c4 = document.querySelector("#c4")
+const c5 = document.querySelector("#c5")
+
+const makeHidden = function(element){
+    element.style.visibility = "hidden"
+    element.style.position = "absolute"
+    element.style.zIndex = "-1"
+}
+
+const makeVisible = function(element){
+    element.style.visibility = "visible"
+    element.style.position = "relative"
+    element.style.zIndex = "1"
+}
+
 window.addEventListener("DOMContentLoaded", () => {
-    
+    onAuthStateChanged(auth, (user) => {
+        if (user){
+            const uid = user.uid
+            get(ref(database, `users/${uid}/routes`))
+            .then(snapshot => {
+                if(snapshot.exists()){
+                    const routes = snapshot.val()
+                    let counter = 0
+                    routes.forEach(route => {
+                        const urlParams = new URLSearchParams(window.location.search)
+                        const route_id = urlParams.get("route_id")
+                        if(route.id_str === route_id){
+                            get(ref(database, `users/${uid}/routes/${counter}/review`))
+                            .then(snapshot => {
+                                if(snapshot.exists()){
+                                    const scoreData = snapshot.val().score
+                                    const textReviewData = snapshot.val().textReview
+
+                                    textReview.innerHTML = textReviewData
+                                    const makeAllHidden = function(){
+                                        starsClosed.forEach(star => {
+                                            star.style.visibility = "hidden"
+                                            star.style.position = "absolute"
+                                            star.style.zIndex = "-1"
+                                        })
+                                        starsOpen.forEach(star => {
+                                            star.style.visibility = "hidden"
+                                            star.style.position = "absolute"
+                                            star.style.zIndex = "-1"
+                                        })
+                                    }
+                                    switch(scoreData){
+                                        case 0: {
+                                            makeAllHidden()
+                                            makeVisible(o1)
+                                            makeVisible(o2)
+                                            makeVisible(o3)
+                                            makeVisible(o4)
+                                            makeVisible(o5)
+                                        }return;
+                                        case 1: {
+                                            makeAllHidden()
+                                            makeVisible(c1)
+                                            makeVisible(o2)
+                                            makeVisible(o3)
+                                            makeVisible(o4)
+                                            makeVisible(o5)
+                                        }return;
+                                        case 2: {
+                                            makeAllHidden()
+                                            makeVisible(c1)
+                                            makeVisible(c2)
+                                            makeVisible(o3)
+                                            makeVisible(o4)
+                                            makeVisible(o5)                                       
+                                        }return;
+                                        case 3: {
+                                            makeAllHidden()
+                                            makeVisible(c1)
+                                            makeVisible(c2)
+                                            makeVisible(c3)
+                                            makeVisible(o4)
+                                            makeVisible(o5)                                       
+                                        }return;
+                                        case 4: {
+                                            makeAllHidden()
+                                            makeVisible(c1)
+                                            makeVisible(c2)
+                                            makeVisible(c3)
+                                            makeVisible(c4)
+                                            makeVisible(o5)                                      
+                                        }return;
+                                        case 5: {
+                                            makeAllHidden()
+                                            makeVisible(c1)
+                                            makeVisible(c2)
+                                            makeVisible(c3)
+                                            makeVisible(c4)
+                                            makeVisible(c5)                                        
+                                        }return;
+                                        default: {
+                                            makeAllHidden()
+                                            makeVisible(o1)
+                                            makeVisible(o2)
+                                            makeVisible(o3)
+                                            makeVisible(o4)
+                                            makeVisible(o5)                                        
+                                        }
+
+                                    }
+                                }
+                            })
+                            return
+                        }
+                        counter++
+                    })
+                }
+            })
+        }
+    })
 })
 
 onAuthStateChanged(auth, (user) => {
@@ -82,6 +214,8 @@ onAuthStateChanged(auth, (user) => {
                         const url = URL.createObjectURL(data)
                         let image = new Image()
                         image.src = url
+                        image.alt = "Profile picture from Google"
+                        //image.ariaLabel = "Profile picture from Google"
                         photo.appendChild(image)
                     })
                 }
@@ -180,6 +314,262 @@ onAuthStateChanged(auth, (user) => {
                     })
                 }
                 getGpxFile()
+            })
+        })
+
+        //REVIEWS
+        let finalScore = 0
+
+        submitReview.addEventListener("click", (e) => {
+            e.preventDefault()
+            if(textReview.value != "" && finalScore > 0){
+                errorSubmit.style.visibility = "hidden"
+                errorSubmit.style.position = "absolute"
+                errorSubmit.style.zIndex = "1"
+                onAuthStateChanged(auth, (user) => {
+                    if (user){
+                        const uid = user.uid
+                        get(ref(database, `users/${uid}/routes`))
+                        .then(snapshot => {
+                            if(snapshot.exists()){
+                                const routes = snapshot.val()
+                                let counter = 0
+                                routes.forEach(route => {
+                                    const urlParams = new URLSearchParams(window.location.search)
+                                    const route_id = urlParams.get("route_id")
+                                    if(route.id_str === route_id){
+                                        update(ref(database, `users/${uid}/routes/${counter}/review`), {
+                                            score: finalScore,
+                                            textReview: textReview.value
+                                        })
+                                        .then(location.reload())
+                                        return
+                                    }
+                                    counter++
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+            else{
+                errorSubmit.style.visibility = "visible"
+                errorSubmit.style.position = "relative"
+                errorSubmit.style.zIndex = "-1"
+            }
+        })
+
+        starsClosed.forEach(star => {
+            star.style.visibility = "hidden"
+            star.style.position = "absolute"
+            star.style.zIndex = "-1"
+        })
+
+        starsClosed.forEach(openstar => {
+            openstar.addEventListener("click", (e) => {
+                e.preventDefault()
+                const id = e.target.id
+                switch(id){
+                    case "c1": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(o1)
+                        makeVisible(o2)
+                        makeVisible(o3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 0
+                    }return;
+                    case "c2": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(o3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 2
+                    }return;
+                    case "c3": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 3
+                    }return;
+                    case "c4": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(c4)
+                        makeVisible(o5)
+                        finalScore = 4
+                    }return;
+                    case "c5": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(c4)
+                        makeVisible(c5)
+                        finalScore = 5
+                    }return;
+                }
+            })
+        })
+        starsOpen.forEach(openstar => {
+            openstar.addEventListener("click", (e) => {
+                e.preventDefault()
+                const id = e.target.id
+
+                switch(id){
+                    case "o1": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(o2)
+                        makeVisible(o3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 1
+                    }return;
+                    case "o2": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(o3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 2
+                    }return;
+                    case "o3": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(o4)
+                        makeVisible(o5)
+                        finalScore = 3
+                    }return;
+                    case "o4": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(c4)
+                        makeVisible(o5)
+                        finalScore = 4
+                    }return;
+                    case "o5": {
+                        makeHidden(c1)
+                        makeHidden(c2)
+                        makeHidden(c3)
+                        makeHidden(c4)
+                        makeHidden(c5)
+                        makeHidden(o1)
+                        makeHidden(o2)
+                        makeHidden(o3)
+                        makeHidden(o4)
+                        makeHidden(o5)
+
+                        makeVisible(c1)
+                        makeVisible(c2)
+                        makeVisible(c3)
+                        makeVisible(c4)
+                        makeVisible(c5)
+                        finalScore = 5
+                    }return;
+                }
             })
         })
     }

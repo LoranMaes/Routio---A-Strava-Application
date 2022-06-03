@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../assets/app/favicon.png">
+
+    <link rel="stylesheet" href="../../stylesheets/common.css">
+    <link rel="stylesheet" href="../../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../../stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+
+    <script src="./reviews.js" type="module" defer></script>
+    <script src="./main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Routio - Reviews</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="notMobile">
+                <li><a href="../../index.html#home">Home</a></li>
+                <li><a href="../../index.html#whatIsRoutio">Routio</a></li>
+            </ul>
+
+            <a class="ir" id="logo-nav" tabindex="0"><h1>Routio</h1></a>
+
+            <ul class="notMobile">
+                <li><a href="../../index.html#ourMission">Our mission</a></li>
+                <li><a href="../../index.html#howToUse">How to use</a></li>
+            </ul>
+
+            <button id="hamburger" aria-expanded="false" aria-label="hamburger button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="mobile">
+                <li><a href="../../index.html#home">Home</a></li>
+                <li><a href="../../index.html#whatIsRoutio">Routio</a></li>
+                <li><a href="../../index.html#ourMission">Our mission</a></li>
+                <li><a href="../../index.html#howToUse">How to use</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="review-cards">
+                <hr>
+                <h2 class="bold">Reviews from other users</h2>
+                <hr>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <label for="sort_score">Sort by score</label>
+                        <select name="sort_score" id="sort_score" class="button">
+                            <option value="select_option">Select an option</option>
+                            <option value="score_asc">Score ASC</option>
+                            <option value="score_desc">Score DESC</option>
+                        </select>
+                    </div>
+                    <filter class="filter-option">
+                        <label for="sort_date">Sort by date</label>
+                        <select name="sort_date" id="sort_date" class="button">
+                            <option value="select_option">Select an option</option>
+                            <option value="date_asc">Date ASC</option>
+                            <option value="date_desc">Date DESC</option>
+                        </select>
+                    </filter>
+                </div>
+                <div class="scrollable-area" tabindex="0">
+                    <!-- FOR REVIEW CARD WITH IMAGE
+                    <div class="review-card">
+                        <div class="left-side">
+                            <img src="../../assets/img/homepage/bike-on-hill-small.png" alt="">
+                        </div>
+                        <div class="right-side">
+                            <p class="bold">Name person</p>
+                            <hr>
+                            <p class="review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptatem nihil quo, laborum labore a molestias dolorem et nulla cum, quidem vitae accusamus debitis. Aliquam vel deleniti obcaecati aspernatur perferendis.</p>
+                            <p class="bold">Score: <span class="scoreReview">smileyicon</span></p>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <button class="beige" id="toAllReviews">See all reviews!</button>
+            </div>
+            <div class="write-review-yourself">
+                <h1 class="title bold">Write here your review about Routio</h1>
+                <form action="" id="sendReviewForm" novalidate>
+                    <div class="input">
+                        <label for="firstname" class="required">First name</label>
+                        <input type="text" name="firstname" id="firstname">
+                        <p class="errorMessage">Please write your first name</p>
+                    </div>
+                    <div class="input">
+                        <label for="lastname" class="required">Last name</label>
+                        <input type="text" name="lastname" id="lastname">
+                        <p class="errorMessage">Please write your last name</p>
+                    </div>
+                    <div class="input">
+                        <label for="review" class="required">Your review</label>
+                        <textarea name="review" id="review" cols="30" rows="6"></textarea>
+                        <p class="errorMessage">Please write a review</p>
+                    </div>
+                    <div class="input">
+                        <label for="image">Provide an image for your review</label>
+                        <input type="file" name="image" id="image" accept="image/png, image/gif, image/jpeg">
+                        <p class="errorMessage">Please provide the correct image type (png, jpg, gif)</p>
+                    </div>
+                    <div class="input">
+                        <label for="emoticon" class="required">How satisfied are you with Routio?</label>
+                        <div class="smileys" id="smileys">
+                            <input type="radio" name="emoticon" value="not-okay" class="not-okay" id="smiley-not-okay" aria-label="Site is not okay">
+                            <input type="radio" name="emoticon" value="okay" class="okay" id="smiley-okay" aria-label="Site is okay">
+                            <input type="radio" name="emoticon" value="satisfied" class="satisfied" id="smiley-satisfied" aria-label="Satisfied with the site">
+                            <input type="radio" name="emoticon" value="very-satisfied" class="very-satisfied" id="smiley-very-satisfied" aria-label="Very satisfied with the site">
+                        </div>
+                        <p class="errorMessage">Please click on a smiley</p>
+                    </div>
+                    
+                    <div class="input">
+                        <button id="submitReview" class="beige">Submit my review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="footer-title">Don't forget to follow our newsletter!</p>
+        <div class="sign-up-information">
+            <label class="floating" for="emailSignUp">
+                <input type="text" id="emailSignUp" name="emailSignUp" required>
+                <span class="placeholder">john.doe@johndoe.com</span>
+            </label>
+            <button class="beige" id="newsletterSignUp">Sign up</button>
+        </div>
+        <div class="socials">
+            <a href=""><img src="../../assets/icons/twitter.png" alt="logo for Twitter"></a>
+            <a href=""><img src="../../assets/icons/facebook.png" alt="logo for Facebook"></a>
+            <a href=""><img src="../../assets/icons/insta.png" alt="logo for Instagram"></a>
+            <a href=""><img src="../../assets/icons/strava.png" alt="logo for Strava"></a>
+        </div>
+        <div class="links">
+            <a href="">Contact us</a>
+            <a href="">FAQ</a>
+            <a href="">Privacy</a>
+            <a href="">Terms of use</a>
+        </div>
+
+        <p class="italic small powered">Powered and designed by Loran Maes &copy;</p>
+        <img src="../../assets/icons/powered-by-strava.png" alt="Powered by Strava" class="strava-logo">
+    </footer>
+</body>
+</html>

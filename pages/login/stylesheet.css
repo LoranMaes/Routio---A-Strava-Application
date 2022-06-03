@@ -7,6 +7,10 @@ main{
     padding: clamp(1rem, 8vw, 4rem)
 }
 
+header{
+    position: relative;
+}
+
 button.beige{
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;
@@ -28,4 +32,24 @@ button.beige:hover{
 
 a.register-link{
     text-decoration: underline;
+    position: relative;
+}
+a.register-link::after{
+    content: " *";
+    color:rgb(226, 27, 27);
+}
+
+main p{
+    color:rgb(226, 27, 27);
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+}
+
+.register{
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 1.6rem;
 }
