@@ -9,6 +9,10 @@ main{
     padding: clamp(1rem, 8vw, 4rem);
 }
 
+.container{
+    padding: 0;
+}
+
 .top-bar{
     display: flex;
     flex-direction: column;
