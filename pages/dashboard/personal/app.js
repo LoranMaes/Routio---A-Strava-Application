@@ -75,7 +75,7 @@ const fetchRoutes = function(){
                     }
                 })
                 fetch(`https://www.strava.com/api/v3/athletes/${profile_id}/routes?page=1&per_page=200`, {
-                    headers: {
+                    headers: {  
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${access_token}`
                     }
