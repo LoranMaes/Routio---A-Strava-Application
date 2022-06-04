@@ -199,7 +199,106 @@ img.icon-card{
 }
 
 /* GUIDE HOW TO USE */
+.guide{
+    display: flex;
+    flex-direction: column;
+}
 
+.guide .cards-to-use::-webkit-scrollbar{
+    display: none;
+}
+.guide .cards-to-use{
+    display: flex;
+    gap: 2.4rem;
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+    padding: 1.6rem;
+}
+
+
+.guide .cards-to-use .card-use{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: var(--bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    scroll-snap-align: center;
+    min-width: 32rem;
+}
+
+.guide .cards-to-use .card-use h2{
+    position: relative;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-top: 0;
+    background: var(--darkBeige);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.guide .cards-to-use .card-use h2::after{
+    position: absolute;
+    content: "";
+    background: var(--bg);
+    width: 4rem;
+    height: 4rem;
+    left: calc(50% - 2rem);
+    top: calc(50% - 2rem);
+    mix-blend-mode: overlay;
+    transform: rotate(45deg);
+}
+.guide .cards-to-use .card-use p.step-title{
+    font-weight: 600;
+}
+.guide .cards-to-use .card-use p.step-title{
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+.guide .cards-to-use .card-use p.step-title,
+.guide .cards-to-use .card-use p.explanation{
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+}
+
+.guide .cards-to-use .card-use:nth-child(1) .bg-img{
+    background-image: url("../assets/guide/phone/1.png");
+}
+.guide .cards-to-use .card-use:nth-child(2) .bg-img{
+    background-image: url("../assets/guide/phone/2.png");
+}
+.guide .cards-to-use .card-use:nth-child(3) .bg-img{
+    background-image: url("../assets/guide/phone/3.png");
+}
+.guide .cards-to-use .card-use:nth-child(4) .bg-img{
+    background-image: url("../assets/guide/phone/4.png");
+}
+.guide .cards-to-use .card-use:nth-child(5) .bg-img{
+    background-image: url("../assets/guide/phone/5.png");
+}
+.guide .cards-to-use .card-use:nth-child(6) .bg-img{
+    background-image: url("../assets/guide/phone/6.png");
+}
+.guide .cards-to-use .card-use:nth-child(7) .bg-img{
+    background-image: url("../assets/guide/phone/7.png");
+}
+
+.guide .cards-to-use .card-use:nth-child(1) .bg-img,
+.guide .cards-to-use .card-use:nth-child(2) .bg-img,
+.guide .cards-to-use .card-use:nth-child(3) .bg-img,
+.guide .cards-to-use .card-use:nth-child(4) .bg-img,
+.guide .cards-to-use .card-use:nth-child(5) .bg-img,
+.guide .cards-to-use .card-use:nth-child(6) .bg-img,
+.guide .cards-to-use .card-use:nth-child(7) .bg-img{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 45rem;
+    filter: drop-shadow(0 0 1rem var(--gray));
+}
 
 /* MAKE THE OTHER LAYOUT INVISIBLE FOR MOBILE FIRST */
 .big-card .leftDesktop,
@@ -345,8 +444,70 @@ img.icon-card{
 
     .guide p.title{
         margin-top: 9.6rem;
+        margin-bottom: 2.4rem;
     }
 
+    .guide .cards-to-use .card-use:nth-child(1) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(2) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(3) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(4) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(5) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(6) .bg-img,
+    .guide .cards-to-use .card-use:nth-child(7) .bg-img{
+        height: 20rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .guide .cards-to-use{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3.6rem;
+        max-width: 100%;
+        overscroll-behavior-x: unset;
+        scroll-snap-type: unset;
+        overflow: hidden;
+        padding: 1.6rem;
+        justify-content: center;
+        max-width: 140rem;
+        margin: 0 auto;
+    }
+    
+    .guide .cards-to-use .card-use{
+        background: var(--bg);
+        text-align: start;
+        border-radius: 1rem;
+        box-shadow: 0 4px 4px 0 var(--blackshadow);
+        scroll-snap-align: unset;
+        min-width: 32rem;
+        max-width: 35rem;
+    }
+
+    .guide .cards-to-use .card-use:nth-child(1) .bg-img{
+        background-image: url("../assets/guide/desktop/1.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(2) .bg-img{
+        background-image: url("../assets/guide/desktop/2.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(3) .bg-img{
+        background-image: url("../assets/guide/desktop/3.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(4) .bg-img{
+        background-image: url("../assets/guide/desktop/4.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(5) .bg-img{
+        background-image: url("../assets/guide/desktop/5.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(6) .bg-img{
+        background-image: url("../assets/guide/desktop/6.png");
+    }
+    .guide .cards-to-use .card-use:nth-child(7) .bg-img{
+        background-image: url("../assets/guide/desktop/7.png");
+    }
+
+    .guide .cards-to-use .card-use h2{
+        text-align: center;
+    }
     @keyframes navlink {
         0%{
             width: 0;
