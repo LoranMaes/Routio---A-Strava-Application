@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">.
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../../../assets/app/favicon.png">
 
     <link rel="stylesheet" href="../../../../stylesheets/common.css">
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <script src="./main.js" defer></script>
-    <script src="./app.js" type="module" defer></script>
+    <script src="./app.js" type="module"></script>
 
     <title>Routio - Route: </title>
 </head>
@@ -91,12 +91,12 @@
     
                 <div class="functionalities">
                     <button class="line download-route">Download GPX</button>
-                    <button class="line" id="share-route">Share route</button>
+                    <button class="line" id="share-route">Copy route link</button>
                     <!-- LATER: PUBLIC ROUTE -->
                 </div>
     
                 <div class="review-section">
-                    <form action="" id="review-form">
+                    <form action="#" id="review-form" novalidate>
                         <label for="review-input">Type your comments here</label>
                         <textarea name="review-input" id="review-input" cols="30" rows="10" placeholder="This is one of the most beautiful routes I have ever ridden!"></textarea>
                         <div class="stars">
@@ -126,7 +126,7 @@
                     </form>
                 </div>
     
-                <button id="backToRoutes" class="back">< Back to routes</button>
+                <button id="backToRoutes" class="back">&lt; Back to routes</button>
         </div>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP6vENDbCcJqPkuF-ePvdzp_VQsSdb0Y8&callback=initMap&libraries=geometry&v=weekly" defer></script>

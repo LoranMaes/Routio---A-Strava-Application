@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../stylesheets/stylesheet.css">
     <link rel="stylesheet" href="./stylesheet.css">
 
-    <script src="./reviews.js" type="module" defer></script>
+    <script src="./reviews.js" type="module"></script>
     <script src="./main.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,14 +66,14 @@
                             <option value="score_desc">Score DESC</option>
                         </select>
                     </div>
-                    <filter class="filter-option">
+                    <div class="filter-option">
                         <label for="sort_date">Sort by date</label>
                         <select name="sort_date" id="sort_date" class="button">
                             <option value="select_option">Select an option</option>
                             <option value="date_asc">Date ASC</option>
                             <option value="date_desc">Date DESC</option>
                         </select>
-                    </filter>
+                    </div>
                 </div>
                 <div class="scrollable-area" tabindex="0">
                     <!-- FOR REVIEW CARD WITH IMAGE
@@ -94,7 +94,7 @@
             </div>
             <div class="write-review-yourself">
                 <h1 class="title bold">Write here your review about Routio</h1>
-                <form action="" id="sendReviewForm" novalidate>
+                <form action="#" id="sendReviewForm" novalidate>
                     <div class="input">
                         <label for="firstname" class="required">First name</label>
                         <input type="text" name="firstname" id="firstname">
@@ -116,7 +116,7 @@
                         <p class="errorMessage">Please provide the correct image type (png, jpg, gif)</p>
                     </div>
                     <div class="input">
-                        <label for="emoticon" class="required">How satisfied are you with Routio?</label>
+                        <label for="smiley-not-okay" class="required">How satisfied are you with Routio?</label>
                         <div class="smileys" id="smileys">
                             <input type="radio" name="emoticon" value="not-okay" class="not-okay" id="smiley-not-okay" aria-label="Site is not okay">
                             <input type="radio" name="emoticon" value="okay" class="okay" id="smiley-okay" aria-label="Site is okay">

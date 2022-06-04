@@ -52,4 +52,18 @@ function initMap() {}
     goBack.addEventListener("click", () => {
         window.location = "../personal/index.html"
     })
+
+    
+    const shareRoute = document.querySelector("#share-route")
+    shareRoute.addEventListener("click", () => {
+        //CREATE THE SHARE LINK
+        const routeURL = window.location.href
+        navigator.clipboard.writeText(routeURL.valueOf())
+        shareRoute.innerHTML = "Route copied!"
+        shareRoute.style.backgroundSize = "100%"
+        setTimeout(() => {
+            shareRoute.innerHTML= "Copy route link"
+            shareRoute.style.backgroundSize = "300% 100%"
+        }, 5000)
+    })
 })()

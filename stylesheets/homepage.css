@@ -227,6 +227,7 @@ img.icon-card{
     box-shadow: 0 4px 4px 0 var(--blackshadow);
     scroll-snap-align: center;
     min-width: 32rem;
+    height: fit-content;
 }
 
 .guide .cards-to-use .card-use h2{
@@ -399,7 +400,7 @@ img.icon-card{
     }
 
     .fold .big-card{
-        width: 125%;
+        width: 30rem;
         margin: 0;
     }
 
@@ -481,6 +482,7 @@ img.icon-card{
         scroll-snap-align: unset;
         min-width: 32rem;
         max-width: 35rem;
+        height: unset;
     }
 
     .guide .cards-to-use .card-use:nth-child(1) .bg-img{

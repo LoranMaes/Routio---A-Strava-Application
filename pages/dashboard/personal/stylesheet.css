@@ -162,6 +162,9 @@ main{
     height: 25rem;
     border-radius: 1rem;
 }
+.route-card .route div{
+    pointer-events: none;
+}
 
 .route-card a.route:after{
     content: "Click here to find detailed information";

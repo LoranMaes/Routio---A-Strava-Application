@@ -203,28 +203,20 @@ onAuthStateChanged(auth, (user) => {
                 typeImg.alt = "This route is a running route"
             }
             
+
             //GET PROFILE PICTURE
-            get(ref(database, `users/${uid}/`))
-            .then(snapshot => {
-                if(snapshot.exists()){
-                    username.innerHTML = snapshot.val().username
-                    fetch(snapshot.val().photoURL)
-                    .then(response => response.blob())
-                    .then(data => {
-                        const url = URL.createObjectURL(data)
-                        let image = new Image()
-                        image.src = url
-                        image.alt = "Profile picture from Google"
-                        //image.ariaLabel = "Profile picture from Google"
-                        photo.appendChild(image)
-                    })
-                }
-                else{
-                    console.log("No data available")
-                }
-            })
-            .catch(err => {
-                console.error(err)
+            const creatorURL = urlParams.get("creatorURL")
+            const creatorName = urlParams.get("creatorName")
+            username.innerHTML = creatorName
+            fetch(creatorURL)
+            .then(response => response.blob())
+            .then(data => {
+                const url = URL.createObjectURL(data)
+                let image = new Image()
+                image.src = url
+                image.alt = "Profile picture from Google"
+                //image.ariaLabel = "Profile picture from Google"
+                photo.appendChild(image)
             })
             
             //SET THE ROUTES INFORMATION

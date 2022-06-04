@@ -121,7 +121,6 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid
-
         //GET THE DATA FROM FIREBASE AND LOOP OVER ALL THE ROUTES AND PUT THEM IN A DIV IN THE ROUTE-CARDS
         const routesRef = ref(database, `users/${uid}/routes`)
         onValue(routesRef, (snapshot) => {
@@ -385,10 +384,11 @@ onAuthStateChanged(auth, (user) => {
                                 const est = route.estimated_moving_time
                 
                                 let element = document.createElement("div");
+                                const hrefLink = `https://routio.loranmaes.ikdoeict.be/pages/dashboard/personal/route/?route_name=${routename}&type=${type}&subtype=${subtype}&est_time=${est}&dist=${distance}&elev=${elevation}&route_id=${route.id_str}&creatorURL=${user.photoURL}&creatorName=${user.displayName}&enc_poly=${route.map.summary_polyline}`
                                 element.className = `route-card route-card-${counter}`
                                 //STILL HAVE TO PUT IN: NAME OF USER, PHOTO OF USER
                                 let routediv = 
-                                `   <a href="./route?route_name=${routename}&type=${type}&subtype=${subtype}&est_time=${est}&dist=${distance}&elev=${elevation}&route_id=${route.id_str}&enc_poly=${route.map.summary_polyline}" class="route"></a>
+                                `   <a href="${hrefLink}" class="route"></a>
                                     <div class="titel">
                                         <label for="titel-route${counter}" class="away">Name of route: ${routename}</label>
                                         <input type="text" id="titel-route${counter}" class="titel-route" value="${routename}" readonly>
@@ -400,8 +400,8 @@ onAuthStateChanged(auth, (user) => {
                                             <button class="line download-route" id="${route.id_str}">
                                                 <p>Download gpx</p>
                                             </button>
-                                            <button class="line">
-                                                <p>Share route</p>
+                                            <button class="line share-route" id="${hrefLink}">
+                                                <p>Copy route link</p>
                                             </button>
                                             <div class="line">
                                                 <p>${type}, ${subtype}</p>
@@ -496,7 +496,10 @@ onAuthStateChanged(auth, (user) => {
                     slicer()
                 }
                 makeCards(false)
-                .then(() => download())
+                .then(() => {
+                    share()
+                    download()
+                })
 
                 const download = async function(){
                     const allRoutes = document.querySelectorAll(".download-route")
@@ -504,6 +507,23 @@ onAuthStateChanged(auth, (user) => {
                         download.addEventListener("click", (event) => {
                             event.preventDefault()
                             getGpxFile(event)
+                        })
+                    })
+                }
+
+                const share = function(){
+                    const allShares = document.querySelectorAll(".share-route")
+                    allShares.forEach(share => {
+                        share.addEventListener("click", (event) => {
+                            event.preventDefault()
+                            const routeURL = share.id
+                            navigator.clipboard.writeText(routeURL.valueOf())
+                            share.childNodes[1].innerHTML = "Route copied!"
+                            share.style.backgroundSize = "100%"
+                            setTimeout(() => {
+                                share.childNodes[1].innerHTML= "Share route"
+                                share.style.backgroundSize = "300% 100%"
+                            }, 5000)
                         })
                     })
                 }
