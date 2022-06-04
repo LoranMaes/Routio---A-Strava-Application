@@ -114,6 +114,13 @@ img.icon-card{
     line-height: 7.8rem;
 }
 
+.what-is p:not(:first-child){
+    background: var(--bg);
+    padding: 2.4rem 1.6rem;
+    box-shadow: 0 4px 4px 0 var(--blackshadow);
+    border-radius: 1rem;
+}
+
 /* PARALLAX SCROLLING IMAGES */
 .images-parallax .first{
     background: url("../assets/img/homepage/bike-on-road.jpg") no-repeat;
@@ -190,6 +197,8 @@ img.icon-card{
 .our-mission p.reviewText{
     color: var(--gray);
 }
+
+/* GUIDE HOW TO USE */
 
 
 /* MAKE THE OTHER LAYOUT INVISIBLE FOR MOBILE FIRST */
@@ -298,6 +307,7 @@ img.icon-card{
     .what-is{
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
     }
     .what-is p:nth-child(3){
         text-align: end;
@@ -327,6 +337,14 @@ img.icon-card{
 
     .our-mission .review{
         padding-top: 0;
+    }
+
+    .our-mission .big-image{
+        height: 65vh;
+    }
+
+    .guide p.title{
+        margin-top: 9.6rem;
     }
 
     @keyframes navlink {
