@@ -5,6 +5,10 @@
     --cardLink4: linear-gradient(to right, #e65c00, #f9d423)
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     overflow-x: hidden;
 }
@@ -67,6 +71,7 @@ main h1:after{
     padding: 1.6rem;
     max-width: 50rem;
     margin: 0 auto;
+    width: 100%;
 }
 
 .right hr{

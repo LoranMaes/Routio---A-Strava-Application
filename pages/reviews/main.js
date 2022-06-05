@@ -66,7 +66,7 @@
 
         const emoticons = document.querySelectorAll("input[name=\"emoticon\"]")
 
-        if(firstname.value != ""){
+        if(firstname.value !== ""){
             let counter = 0
             letters.forEach(letter => {
                 for(let i = 0; i < firstname.value.length; i++){
@@ -76,7 +76,7 @@
                     }
                 }
             })
-            if(counter != firstname.value.length){
+            if(counter !== firstname.value.length){
                 showError(array[0])
                 magSturen = false
             }
@@ -86,7 +86,7 @@
             magSturen = false
         }
 
-        if(lastname.value != ""){
+        if(lastname.value !== ""){
             let counter = 0
             letters.forEach(letter => {
                 for(let i = 0; i < lastname.value.length; i++){
@@ -95,7 +95,7 @@
                     }
                 }
             })
-            if(counter != lastname.value.length){
+            if(counter !== lastname.value.length){
                 showError(array[1])
                 magSturen = false
             }
@@ -116,7 +116,7 @@
         }
 
         //CHECK IF FILE TYPE IS SUPPORTED
-        if(image.value != ""){
+        if(image.value !== ""){
             let idxDot = image.value.lastIndexOf(".") + 1;
             let extFile = image.value.substr(idxDot, image.value.length).toLowerCase();
             switch(extFile){

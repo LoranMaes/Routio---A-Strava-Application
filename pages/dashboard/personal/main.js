@@ -1,4 +1,5 @@
 function initMap() {}
+//DEZE FUNCTIE MOEST IK HIERBOVEN DOEN OMDAT MIJN MAPS ANDERS NIET WERKTEN
 (function(){
     "use strict"
     

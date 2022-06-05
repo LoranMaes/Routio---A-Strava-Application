@@ -2,7 +2,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get, child, update, push } from "firebase/database";
-import { fill } from "lodash-es";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -314,7 +313,7 @@ onAuthStateChanged(auth, (user) => {
 
         submitReview.addEventListener("click", (e) => {
             e.preventDefault()
-            if(textReview.value != "" && finalScore > 0){
+            if(textReview.value !== "" && finalScore > 0){
                 errorSubmit.style.visibility = "hidden"
                 errorSubmit.style.position = "absolute"
                 errorSubmit.style.zIndex = "1"

@@ -388,7 +388,7 @@ onAuthStateChanged(auth, (user) => {
                                 element.className = `route-card route-card-${counter}`
                                 //STILL HAVE TO PUT IN: NAME OF USER, PHOTO OF USER
                                 let routediv = 
-                                `   <a href="${hrefLink}" class="route"></a>
+                                `   <a href="./route/?route_name=${routename}&type=${type}&subtype=${subtype}&est_time=${est}&dist=${distance}&elev=${elevation}&route_id=${route.id_str}&creatorURL=${user.photoURL}&creatorName=${user.displayName}&enc_poly=${route.map.summary_polyline}" class="route"></a>
                                     <div class="titel">
                                         <label for="titel-route${counter}" class="away">Name of route: ${routename}</label>
                                         <input type="text" id="titel-route${counter}" class="titel-route" value="${routename}" readonly>

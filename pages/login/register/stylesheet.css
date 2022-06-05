@@ -28,6 +28,7 @@ h1+hr{
 
 ol{
     text-align: start;
+    max-width: 720px;
 }
 
 ol li{
