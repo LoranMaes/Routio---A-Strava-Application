@@ -29,7 +29,7 @@ const dbRef = ref(database);
 //STRAVA AUTHORISATION
 const authorize = document.querySelector("#fetch-routes")
 const request = function(){
-    window.location = "https://www.strava.com/oauth/authorize?client_id=84306&redirect_uri=http://localhost:1234/pages/dashboard/personal/&response_type=code&scope=read_all&; path=/"
+    window.location = "https://www.strava.com/oauth/authorize?client_id=84306&redirect_uri=https://routio.loranmaes.ikdoeict.be/pages/dashboard/personal/&response_type=code&scope=read_all&; path=/"
 }
 authorize.addEventListener("click", () => {
     request()

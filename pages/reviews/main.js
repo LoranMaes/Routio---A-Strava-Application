@@ -173,7 +173,7 @@
             console.log("sending post request")
 
             //https://routioreviews.loranmaes.ikdoeict.be/reviews
-            fetch("http://127.0.0.1:3000/reviews", {
+            fetch("https://routioreviews.loranmaes.ikdoeict.be/reviews", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8"

@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
     
     const getAllReviews = async function(sort){
         //https://routioreviews.loranmaes.ikdoeict.be/reviews
-        fetch(`http://127.0.0.1:3000/reviews/${sort}`, {
+        fetch(`https://routioreviews.loranmaes.ikdoeict.be/reviews/${sort}`, {
             method: "GET"
         })
         .then(response => response.json())
